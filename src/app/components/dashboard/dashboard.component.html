@@ -1,7 +1,9 @@
 <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="true">
         <div fxLayout="column" fxLayoutAlign="center center" class="nav-item" *ngFor="let item of navItems">
-            <mat-icon>{{item.icon}}</mat-icon>
+                <button type="button" mat-icon-button (click)="navigate(item.path)">
+                  <mat-icon>{{item.icon}}</mat-icon>
+                </button>
             <span>
                 {{item.label}}
             </span>
@@ -16,6 +18,8 @@
             </button>
             <span>Title</span>
         </mat-toolbar>
+        <router-outlet></router-outlet>
+        
 
     </div>
 

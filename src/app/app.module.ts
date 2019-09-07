@@ -13,6 +13,11 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { ViewProductDetailsComponent } from './components/view-product-details/view-product-details.component';
 import { SimpleDialogComponent } from './components/simple-dialog/simple-dialog.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ProductService } from './components/product.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,16 +26,20 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AddProductComponent,
     ViewProductDetailsComponent,
     SimpleDialogComponent,
-    DashboardComponent
+    DashboardComponent,
+    EditProductComponent
   ],
   imports: [
     MaterialModule,
     FlexLayoutModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule, ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ProductService],
+  bootstrap: [AppComponent],
+  entryComponents:[SimpleDialogComponent]
 })
 export class AppModule { }

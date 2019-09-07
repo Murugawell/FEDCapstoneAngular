@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,7 @@ export class DashboardComponent implements OnInit {
   navItems = [{
     icon: 'person',
     label: 'Dashboard',
-    path: '/dashboard'
+    path: '/'
   },
   {
     icon: 'person',
@@ -23,14 +24,27 @@ export class DashboardComponent implements OnInit {
   },
   {
     icon: 'person',
+    label: 'Add Product',
+    path: '/addProduct'
+  },
+  {
+    icon: 'person',
+    label: 'View Product',
+    path: '/viewProduct'
+  },
+  {
+    icon: 'person',
     label: 'Reports',
     path: '/reports'
   }
 
   ];
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
+  navigate(path) {
 
+    this.router.navigate([this.route.snapshot.url + '/' + path]);
+  }
 }

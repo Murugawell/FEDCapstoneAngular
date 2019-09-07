@@ -1,0 +1,17 @@
+.register-form {
+    min-width: 150px;
+    max-width: 1000px;
+    width: 100%;
+    
+  }
+  
+  .register-full-width {
+    width: 100%;
+  }
+  .center-align{
+      text-align: "center";
+  }
+  .register {
+    height: 70%;
+    width: 100%;
+  }

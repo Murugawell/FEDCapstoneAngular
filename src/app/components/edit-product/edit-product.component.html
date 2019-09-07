@@ -1,9 +1,9 @@
 <div >
         <mat-toolbar fxLayoutAlign="center center" >
-                <span >Add Product</span>
+                <span >Edit Product</span>
             </mat-toolbar>
         <div  class="register" fxLayoutAlign="center center">    
-        <form fxLayout="row wrap" fxLayoutGap="0.5%" class="register-form" fxLayoutAlign="left" [formGroup]="profileForm" (ngSubmit)="addProduct()">
+        <form fxLayout="row wrap" fxLayoutGap="0.5%" class="register-form" fxLayoutAlign="left" [formGroup]="profileForm" (ngSubmit)="editProduct()">
             <mat-form-field fxFlex="49%" class="register-full-width" appearance="outline">
                 <input disabled matInput placeholder="Product ID " formControlName="productID">
             </mat-form-field>
@@ -24,7 +24,7 @@
             </mat-form-field>
            
             <div fxLayoutAlign="center center">
-                    <button mat-raised-button type="submit"  >Add Product</button>
+                    <button mat-raised-button type="submit"  >Edit Product</button>
             </div>
           </form>
         </div>

@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "productName": "sdfs",
+      "productDescription": "R",
+      "quantity": "222",
+      "manufacturer": "Soundar",
+      "price": "22",
+      "id": 1
+    },
+    {
+      "productName": "rete",
+      "productDescription": "rtert",
+      "quantity": "12",
+      "id": 2,
+      "manufacturer": "tee",
+      "price": "21"
+    }
+  ]
+}

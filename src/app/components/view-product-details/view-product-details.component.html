@@ -1,1 +1,40 @@
-<p>view-product-details works!</p>
+<mat-toolbar fxLayoutAlign="center center">
+    <span>Products</span>
+</mat-toolbar>
+<mat-tab-group [selectedIndex]="index">
+    <mat-tab >
+
+        <div style="text-align: -webkit-center;">
+            <table style="border: 1px solid black;text-align: -webkit-center;">
+                <th style="border: 1px solid black;">ProductID</th>
+                <th style="border: 1px solid black;">ProductName</th>
+                <th style="border: 1px solid black;">Description</th>
+                <th style="border: 1px solid black;">Manufacturer</th>
+                <th style="border: 1px solid black;">Quantity</th>
+                <th style="border: 1px solid black;">Price</th>
+                <tr *ngFor='let p of product'>
+                    <td style="border: 1px solid black;">{{p.id}}</td>
+                    <td style="border: 1px solid black;">{{p.productName}}</td>
+                    <td style="border: 1px solid black;">{{p.productDescription}}</td>
+                    <td style="border: 1px solid black;">{{p.manufacturer}}</td>
+                    <td style="border: 1px solid black;">{{p.quantity}}</td>
+                    <td style="border: 1px solid black;">{{p.price}}</td>
+                    <td style="border: 1px solid black;">
+                        <button mat-raised-button (click)="openEdit(p.id)">Edit</button>
+                    </td>
+                    <td style="border: 1px solid black;">
+                        <button mat-raised-button (click)="openDialog(p.id)">Delete</button>
+                    </td>
+
+
+
+                </tr>
+            </table>
+        </div>
+    </mat-tab>
+
+    <mat-tab>
+
+        <router-outlet></router-outlet>
+    </mat-tab>
+</mat-tab-group>
