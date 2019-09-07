@@ -9,11 +9,19 @@ import { RegisterComponent } from './components/register/register.component';
 import { MaterialModule } from './material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { from } from 'rxjs';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { ViewProductDetailsComponent } from './components/view-product-details/view-product-details.component';
+import { SimpleDialogComponent } from './components/simple-dialog/simple-dialog.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddProductComponent,
+    ViewProductDetailsComponent,
+    SimpleDialogComponent,
+    DashboardComponent
   ],
   imports: [
     MaterialModule,
