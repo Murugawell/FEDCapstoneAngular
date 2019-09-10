@@ -4,8 +4,8 @@
 <mat-tab-group [selectedIndex]="index">
     <mat-tab >
 
-        <div style="text-align: -webkit-center;">
-            <table style="border: 1px solid black;text-align: -webkit-center;">
+        <div fxLayout="row wrap" fxLayoutAlign="center center">
+            <!--<table style="border: 1px solid black;text-align: -webkit-center;">
                 <th style="border: 1px solid black;">ProductID</th>
                 <th style="border: 1px solid black;">ProductName</th>
                 <th style="border: 1px solid black;">Description</th>
@@ -29,7 +29,22 @@
 
 
                 </tr>
-            </table>
+            </table>-->
+            <mat-card *ngFor='let p of product' fxFlex="18%" appearance="outline">
+                <mat-card-title>{{p.productName}}</mat-card-title>
+                <mat-divider></mat-divider>
+                <mat-card-subtitle>ProductID:{{p.id}}</mat-card-subtitle>
+                <mat-card-subtitle>Manufacturer:{{p.manufacturer}}</mat-card-subtitle>
+                <mat-card-subtitle>Quantity:{{p.quantity}}</mat-card-subtitle>  
+                <mat-card-subtitle>Price:{{p.price}}</mat-card-subtitle> 
+                <mat-divider></mat-divider>               
+                <mat-card-content>{{p.productDescription}}</mat-card-content>
+                <mat-card-actions >
+                        <button mat-raised-button (click)="openEdit(p.id)" fxFlex="50%" color="primary"><mat-icon  >edit</mat-icon>Edit</button>
+                        <button mat-raised-button (click)="openDialog(p.id)" fxFlex="50%" color="warn"><mat-icon  >close</mat-icon>Delete</button>
+                        
+                </mat-card-actions>
+             </mat-card>
         </div>
     </mat-tab>
 

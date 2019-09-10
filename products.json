@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "productName": "sdfs",
+      "productName": "sdf",
       "productDescription": "R",
       "quantity": "222",
       "manufacturer": "Soundar",
@@ -15,6 +15,47 @@
       "id": 2,
       "manufacturer": "tee",
       "price": "21"
+    },
+    {
+      "productName": "saf",
+      "productDescription": "fafadf",
+      "quantity": "21321",
+      "manufacturer": "asfadf",
+      "price": "213",
+      "id": 3
+    },
+    {
+      "productName": "dss",
+      "productDescription": "fsfsd",
+      "quantity": "123",
+      "manufacturer": "sdfsdf",
+      "price": "213",
+      "id": 4
+    }
+  ],
+  "profiles": [
+    {
+      "firstName": "Soundar",
+      "lastName": "R",
+      "emailID": "asdasd@ds.dsad",
+      "mobileNo": "2131312312",
+      "password": "sadas",
+      "confirmPassword": "daasd",
+      "location": "benaluru",
+      "id": 1
+    },
+    {
+      "firstName": "Soundar",
+      "lastName": "R",
+      "emailID": "dasda",
+      "mobileNo": "231313",
+      "password": "WEWEWE",
+      "confirmPassword": "WEWEWE",
+      "location": "Bengaluru",
+      "profileCreatedOn": "2019-09-10T10:03:14.258Z",
+      "lastLogin": "2019-09-10T10:03:14.258Z",
+      "profileUpdated": "2019-09-10T10:03:14.258Z",
+      "id": 2
     }
   ]
 }

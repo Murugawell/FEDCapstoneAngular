@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable()
 export class ProductService {
     private _productsUrl = "http://localhost:3000/products";
+    private _profileUrl = "http://localhost:3000/profiles";
     private count=105;
     private httpOptions = {
         headers: new HttpHeaders({
@@ -12,7 +13,24 @@ export class ProductService {
     };
 
     constructor (private _http: HttpClient) { }
-
+    registerProfile(profile) {
+         var now = new Date();
+        //  console.log(now.getDate()+'-'+now.getMonth()+'-'+now.getYear());
+         let newProfile = {
+             firstName: profile.firstName,
+             lastName: profile.lastName,
+             emailID: profile.emailID,
+             mobileNo: profile.mobileNo,
+             password: profile.password,
+             confirmPassword: profile.confirmPassword,
+             location:profile.location,
+             profileCreatedOn:now,
+             lastLogin:now,
+             profileUpdated:now
+            
+        }
+         return this._http.post(this._profileUrl, newProfile, this.httpOptions);        
+    }
     getProducts() {
         return this._http.get(this._productsUrl);
     }

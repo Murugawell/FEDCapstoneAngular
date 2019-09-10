@@ -55,6 +55,8 @@ export class ViewProductDetailsComponent implements OnInit {
     });
   }
   ngOnInit() {
+    console.log("asdsa");
+    this.index = 0; 
     this.getProduct();
   }
 

@@ -5,25 +5,31 @@
         <div  class="register" fxLayoutAlign="center center">    
         <form fxLayout="row wrap" fxLayoutGap="0.5%" class="register-form" fxLayoutAlign="left" [formGroup]="profileForm" (ngSubmit)="addProduct()">
             <mat-form-field fxFlex="49%" class="register-full-width" appearance="outline">
+                <mat-label>Product ID</mat-label>
                 <input disabled matInput placeholder="Product ID " formControlName="productID">
             </mat-form-field>
             <mat-form-field fxFlex="49%" class="register-full-width" appearance="outline">
+                <mat-label>Product name</mat-label>
                 <input matInput placeholder="Product name " formControlName="productName" >
             </mat-form-field>
             <mat-form-field fxFlex="49%" class="register-full-width" appearance="outline">
+                <mat-label>Product description</mat-label>
                 <input matInput placeholder="Product description " formControlName="description" >
             </mat-form-field>
             <mat-form-field fxFlex="49%" class="register-full-width" appearance="outline">
+                <mat-label>Manufacturer</mat-label>
               <input matInput placeholder="Manufacturer" formControlName="manufacturer" >
             </mat-form-field>
             <mat-form-field fxFlex="49%" class="register-full-width" appearance="outline">
+                <mat-label>Price</mat-label>
                     <input matInput placeholder="Price" formControlName="price"  >
             </mat-form-field>
             <mat-form-field fxFlex="49%" class="register-full-width" appearance="outline">
+                <mat-label>Quantity</mat-label>
                 <input matInput placeholder="Quantity"  formControlName="quantity" >
             </mat-form-field>
            
-            <div fxLayoutAlign="center center">
+            <div fxFlex="100%" fxLayoutAlign="center center">
                     <button mat-raised-button type="submit"  >Add Product</button>
             </div>
           </form>
