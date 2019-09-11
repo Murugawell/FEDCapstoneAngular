@@ -1,23 +1,26 @@
 <div class="main" fxLayoutAlign="center center">
+    <form fxLayout="row wrap" fxLayoutGap="0.5%" class="register-form" fxLayoutAlign="left" [formGroup]="loginForm" (ngSubmit)="login()">
     <mat-card class="card1" fxLayout="column">
         <mat-toolbar>
             <span>Login</span>
         </mat-toolbar>
         <mat-form-field appearance="outline">
             <mat-label>User Name</mat-label>
-            <input matInput placeholder="Placeholder">
+            <input matInput placeholder="Placeholder" formControlName="userName">
             <!-- <mat-icon matPrefix>sentiment_very_satisfied</mat-icon> -->
             <mat-error>Hint</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput placeholder="Placeholder">
+            <input matInput placeholder="Placeholder" formControlName="password">
             <!-- <mat-icon matPrefix>sentiment_very_satisfied</mat-icon> -->
             <mat-error>Hint</mat-error>
         </mat-form-field>
-        <button mat-raised-button (click)="login()" color="primary">Login</button>
-        <button mat-button  (click)="register()"> Signup</button>
-
+        <button mat-raised-button type="submit" color="primary">Login</button>
+        <button mat-raised-button  (click)="register()"> Signup</button>
+        <mat-label style="color:red;text-align:center;">{{errorMsg}}</mat-label>
     </mat-card>
+    
+    </form>
 </div>

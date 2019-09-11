@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,8 @@ import { ProductService } from './components/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { ProfileComponentComponent } from './components/profile-component/profile-component.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     ViewProductDetailsComponent,
     SimpleDialogComponent,
     DashboardComponent,
-    EditProductComponent
+    EditProductComponent,
+    ProfileComponentComponent
   ],
   imports: [
     MaterialModule,
@@ -36,7 +39,11 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule, ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MDBBootstrapModule.forRoot()
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [ProductService],
   bootstrap: [AppComponent],

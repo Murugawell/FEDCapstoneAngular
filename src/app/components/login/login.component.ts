@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +10,52 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
-
+  constructor(private router: Router,private fb: FormBuilder, private _productService: ProductService) {
+   }
+   loginForm = this.fb.group({
+    userName:'',
+    password:''
+  });
+     errorMsg='';
+  
   ngOnInit() {
+    
   }
   public login() {
-    this.router.navigate(['/dashboard']);
+    console.log(this.loginForm.value);
+      if(this.loginForm.value.userName.length>0&&this.loginForm.value.password.length>0)
+      {
+         this._productService.getUser(this.loginForm.value.userName).subscribe(
+      (user: any) => {
+        console.log(user);
+        if(user.length>0){
+           if(user[0].password==this.loginForm.value.password)
+        {
+        this.router.navigate(['/dashboard']);          
+      }
+      else
+       {
+         this.errorMsg="Password is incorrect";
+       }
+        }
+       else
+       {
+         this.errorMsg="Please sign up to continue";
+       }
+       
+      }
+      ,
+      err => console.log(err)
+    );
+      }
+      else{
+        this.errorMsg="Please enter correct credentials";
+      }
+     
+  
+    
+        
+
   }
   public register() {
     this.router.navigate(['/registration']);

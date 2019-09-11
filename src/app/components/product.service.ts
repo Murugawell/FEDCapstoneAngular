@@ -38,7 +38,17 @@ export class ProductService {
         const url = `${this._productsUrl}/${id}`;        
         return this._http.get(url, this.httpOptions);
     }
-
+    getUser(id) {
+      //  const url = `${this._profileUrl}/${id}`;  
+        let user={
+            params:{
+            "emailID":id}
+        }
+        this._http.get(this._profileUrl,user).subscribe(
+      (user: any) => {
+        console.log(user);});    
+        return this._http.get(this._profileUrl,user);
+    }
     addProduct(product) {
         this.count++;
         let newProduct = {

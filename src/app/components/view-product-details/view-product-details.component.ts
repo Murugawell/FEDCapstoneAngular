@@ -4,7 +4,13 @@ import { ProductService } from '../product.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SimpleDialogComponent } from '../simple-dialog/simple-dialog.component';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 export interface DialogData {
   animal: string;
@@ -14,7 +20,19 @@ export interface DialogData {
 @Component({
   selector: 'app-view-product-details',
   templateUrl: './view-product-details.component.html',
-  styleUrls: ['./view-product-details.component.css']
+  styleUrls: ['./view-product-details.component.css'],
+   animations: [
+    trigger('flipState', [
+      state('active', style({
+        transform: 'rotateY(179deg)'
+      })),
+      state('inactive', style({
+        transform: 'rotateY(0)'
+      })),
+      transition('active => inactive', animate('250ms ease-out')),
+      transition('inactive => active', animate('250ms ease-in'))
+    ])
+  ]
 })
 export class ViewProductDetailsComponent implements OnInit {
 
@@ -59,5 +77,11 @@ export class ViewProductDetailsComponent implements OnInit {
     this.index = 0; 
     this.getProduct();
   }
+  flip: string = 'inactive';
+
+  toggleFlip() {
+    this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
+  }
+
 
 }

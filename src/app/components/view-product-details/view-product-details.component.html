@@ -4,33 +4,10 @@
 <mat-tab-group [selectedIndex]="index">
     <mat-tab >
 
-        <div fxLayout="row wrap" fxLayoutAlign="center center">
-            <!--<table style="border: 1px solid black;text-align: -webkit-center;">
-                <th style="border: 1px solid black;">ProductID</th>
-                <th style="border: 1px solid black;">ProductName</th>
-                <th style="border: 1px solid black;">Description</th>
-                <th style="border: 1px solid black;">Manufacturer</th>
-                <th style="border: 1px solid black;">Quantity</th>
-                <th style="border: 1px solid black;">Price</th>
-                <tr *ngFor='let p of product'>
-                    <td style="border: 1px solid black;">{{p.id}}</td>
-                    <td style="border: 1px solid black;">{{p.productName}}</td>
-                    <td style="border: 1px solid black;">{{p.productDescription}}</td>
-                    <td style="border: 1px solid black;">{{p.manufacturer}}</td>
-                    <td style="border: 1px solid black;">{{p.quantity}}</td>
-                    <td style="border: 1px solid black;">{{p.price}}</td>
-                    <td style="border: 1px solid black;">
-                        <button mat-raised-button (click)="openEdit(p.id)">Edit</button>
-                    </td>
-                    <td style="border: 1px solid black;">
-                        <button mat-raised-button (click)="openDialog(p.id)">Delete</button>
-                    </td>
-
-
-
-                </tr>
-            </table>-->
-            <mat-card *ngFor='let p of product' fxFlex="18%" appearance="outline">
+        <div *ngFor='let p of product' class="tp-box" fxLayout="row wrap" fxFlex="20%" fxLayoutAlign="center center" (click)="toggleFlip()" [@flipState]="flip">
+           
+            <div class="tp-box__side tp-box__front" >
+            <mat-card  appearance="outline">
                 <mat-card-title>{{p.productName}}</mat-card-title>
                 <mat-divider></mat-divider>
                 <mat-card-subtitle>ProductID:{{p.id}}</mat-card-subtitle>
@@ -39,12 +16,16 @@
                 <mat-card-subtitle>Price:{{p.price}}</mat-card-subtitle> 
                 <mat-divider></mat-divider>               
                 <mat-card-content>{{p.productDescription}}</mat-card-content>
-                <mat-card-actions >
+                
+             </mat-card>
+        </div>
+        <div class="tp-box__side tp-box__back">
+           <mat-card-actions >
                         <button mat-raised-button (click)="openEdit(p.id)" fxFlex="50%" color="primary"><mat-icon  >edit</mat-icon>Edit</button>
                         <button mat-raised-button (click)="openDialog(p.id)" fxFlex="50%" color="warn"><mat-icon  >close</mat-icon>Delete</button>
                         
                 </mat-card-actions>
-             </mat-card>
+            </div>
         </div>
     </mat-tab>
 
@@ -53,3 +34,4 @@
         <router-outlet></router-outlet>
     </mat-tab>
 </mat-tab-group>
+

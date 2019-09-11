@@ -25,9 +25,19 @@
             ],
             "styles": [
               "src/custom-theme.scss",
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/bootstrap.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/mdb.css",
+              "src/assets/css/mdb.min.css",
+              "src/assets/css/style.css"
             ],
-            "scripts": []
+            "scripts": [
+               "src/assets/js/jquery-2.2.3.js",
+               "src/assets/js/tether.js",
+            "src/assets/js/bootstrap.js",
+            "src/assets/js/mdb.js"
+            ]
           },
           "configurations": {
             "production": {

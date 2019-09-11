@@ -15,23 +15,19 @@ export class DashboardComponent implements OnInit {
   {
     icon: 'person',
     label: 'Profile',
-    path: '/dashboard'
+    path: '/profile'
   },
   {
     icon: 'person',
     label: 'Inventory',
-    path: '/inventory'
+    path: '/viewProduct'
   },
   {
     icon: 'person',
     label: 'Add Product',
     path: '/addProduct'
   },
-  {
-    icon: 'person',
-    label: 'View Product',
-    path: '/viewProduct'
-  },
+  
   {
     icon: 'person',
     label: 'Reports',
