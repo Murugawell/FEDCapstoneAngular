@@ -21,3 +21,6 @@
 .nav-item span {
   font-size: 14px;
 }
+.logout {
+  display: flex;
+}

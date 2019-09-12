@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         }
        else
        {
-         this.errorMsg="Please sign up to continue";
+         this.errorMsg="Invalid Username";
        }
        
       }
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     );
       }
       else{
-        this.errorMsg="Please enter correct credentials";
+        this.errorMsg="Please enter credentials";
       }
      
   

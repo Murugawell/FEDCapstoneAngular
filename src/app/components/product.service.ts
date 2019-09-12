@@ -46,8 +46,44 @@ export class ProductService {
         }
         this._http.get(this._profileUrl,user).subscribe(
       (user: any) => {
-        console.log(user);});    
+          console.log(user,"::::::::::",user[0]);
+          sessionStorage.setItem('user',JSON.stringify(user[0]));
+         
+        });    
         return this._http.get(this._profileUrl,user);
+    }
+    getUserSession(){
+        var user = sessionStorage.getItem('user');
+        return user;
+    }
+    removeUserSession(){
+        var user = sessionStorage.removeItem('user');
+        sessionStorage.clear();
+        return user;
+    }
+    
+     editProfile(id,profile) {
+         console.log(profile);
+           let user=sessionStorage.getItem('user');
+        let userObj=JSON.parse(user);
+         var now = new Date();
+          let newProfile = {
+                'firstName': profile.firstName,
+                'lastName': profile.lastName,
+                'emailID': profile.emailID,
+                'mobileNo': profile.mobileNo,
+                'password': profile.password,
+                'confirmPassword': profile.confirmPassword,
+                'location':profile.location,
+                'profileUpdated':now,
+                'profileCreatedOn':userObj.profileCreatedOn,
+                'lastLogin':userObj.lastLogin
+        }
+      
+      
+        
+        const url = `${this._profileUrl}/${userObj.id}`;
+        return this._http.put(url,newProfile, this.httpOptions);
     }
     addProduct(product) {
         this.count++;

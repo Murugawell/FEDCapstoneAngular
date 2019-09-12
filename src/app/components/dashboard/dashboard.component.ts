@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,11 +13,7 @@ export class DashboardComponent implements OnInit {
     label: 'Dashboard',
     path: '/'
   },
-  {
-    icon: 'person',
-    label: 'Profile',
-    path: '/profile'
-  },
+  
   {
     icon: 'person',
     label: 'Inventory',
@@ -35,12 +32,28 @@ export class DashboardComponent implements OnInit {
   }
 
   ];
-  constructor(private router: Router, private route: ActivatedRoute) { }
-
+  constructor(private router: Router, private route: ActivatedRoute,private _productService: ProductService) { }
+  show:boolean;
   ngOnInit() {
+    let user=this._productService.getUserSession();
+
+    if(user==null)
+    {
+      console.log(user);
+      this.show=false;
+    }
+    else
+    {
+      console.log(user);      
+      this.show=true;
+    }
   }
   navigate(path) {
 
     this.router.navigate([this.route.snapshot.url + '/' + path]);
+  }
+  logout(){
+    this._productService.removeUserSession();
+     this.router.navigate(['/']);
   }
 }

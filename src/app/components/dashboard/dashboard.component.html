@@ -12,11 +12,20 @@
     </mat-drawer>
 
     <div class="example-sidenav-content">
-        <mat-toolbar color="primary">
-            <button type="button" mat-icon-button (click)="drawer.toggle()">
+        <mat-toolbar color="primary" fxLayout="row wrap">
+            <button type="button"  fxFlex="10%" mat-icon-button (click)="drawer.toggle()">
                 <mat-icon>menu_vert</mat-icon>
             </button>
-            <span>Title</span>
+            <span fxLayoutAlign="left" fxFlex="85%">Title</span>
+            <span  fxLayoutAlign="right" fxFlex="5%" *ngIf="show"> 
+                <button type="button" mat-icon-button [matMenuTriggerFor]="menu" >
+                    <mat-icon>person</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="navigate('/profile')"><mat-icon>person</mat-icon>Profile</button>
+                <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon>Logout</button>
+                </mat-menu>
+            </span>
         </mat-toolbar>
         <router-outlet></router-outlet>
         

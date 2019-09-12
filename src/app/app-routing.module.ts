@@ -7,18 +7,18 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { ProfileComponentComponent } from './components/profile-component/profile-component.component';
 import { ViewProductDetailsComponent } from './components/view-product-details/view-product-details.component';
-
+import { ConfirmGuard } from './confirm.guard';
 
 
 const routes: Routes = [
   {
     path: 'dashboard', component: DashboardComponent, children: [
-      { path: 'addProduct', component: AddProductComponent },
-      { path: 'profile', component: ProfileComponentComponent },
+      { path: 'addProduct',canActivate: [ConfirmGuard],canDeactivate: [ConfirmGuard], component: AddProductComponent },
+      { path: 'profile',canActivate: [ConfirmGuard], component: ProfileComponentComponent },
       {
         path: 'viewProduct', component: ViewProductDetailsComponent,
         children: [
-          { path: 'editProduct/:id', component: EditProductComponent }]
+          { path: 'editProduct/:id',canActivate: [ConfirmGuard], component: EditProductComponent }]
       },
 
     ]
