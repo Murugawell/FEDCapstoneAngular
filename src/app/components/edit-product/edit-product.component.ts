@@ -34,7 +34,8 @@ export class EditProductComponent implements OnInit {
           description: product.productDescription,
           manufacturer: product.manufacturer,
           price: product.price,
-          quantity: product.quantity });
+          quantity: product.quantity,
+          productID: product.id});
       }
         ,
       err => console.log(err)

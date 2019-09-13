@@ -1,14 +1,6 @@
 {
   "products": [
     {
-      "productName": "sdf",
-      "productDescription": "R",
-      "quantity": "222",
-      "manufacturer": "Soundar",
-      "price": "22",
-      "id": 1
-    },
-    {
       "productName": "rete",
       "productDescription": "rtert",
       "quantity": "12",
@@ -31,6 +23,22 @@
       "manufacturer": "sdfsdf",
       "price": "213",
       "id": 4
+    },
+    {
+      "productName": "dsfs",
+      "productDescription": "sdfsdf",
+      "quantity": "12321",
+      "id": 5,
+      "manufacturer": "sdfds",
+      "price": "213"
+    },
+    {
+      "productName": "dsfds",
+      "productDescription": "fsdfs",
+      "quantity": "21312",
+      "id": 6,
+      "manufacturer": "fdsfs",
+      "price": "213"
     }
   ],
   "profiles": [

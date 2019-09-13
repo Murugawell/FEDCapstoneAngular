@@ -33,7 +33,11 @@ export class AddProductComponent implements OnInit {
         {
           let len=1+this.product[this.product.length-1].id;
           console.log(len);
-          this.profileForm.patchValue({ productID: len });
+          this.profileForm.patchValue({ productID: len, productName: '',
+    description: '',
+    manufacturer: '',
+    price: '',
+    quantity: '', });
         }
       },
       err => console.log(err)
@@ -47,6 +51,7 @@ export class AddProductComponent implements OnInit {
 
     this._productService.addProduct(this.profileForm.getRawValue()).subscribe((res) => {
       console.log(res);
+      this.getProduct();
     });
 
     // }

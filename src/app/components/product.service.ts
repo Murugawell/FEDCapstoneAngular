@@ -87,13 +87,15 @@ export class ProductService {
     }
     addProduct(product) {
         this.count++;
+        var now = new Date();
         let newProduct = {
             "productName": product.productName,
             "productDescription":product.description,            
             "quantity": product.quantity,
             "id":product.productID,
             "manufacturer":product.manufacturer,
-            "price":product.price
+            "price":product.price,
+            "productAddedon":now
             
         }
         
