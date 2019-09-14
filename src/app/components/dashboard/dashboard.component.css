@@ -1,17 +1,44 @@
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideInFromTop {
+  0% {
+    transform: rotateX(180deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
 .example-container {
   height: 100%;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
 .example-sidenav-content {
   height: 100%;
+  
 }
-
+mat-toolbar{
+  animation: 2s ease-out 0s 1 slideInFromTop;
+  
+}
 .example-sidenav {
   /* padding: 20px; */
   background: rgb(50, 53, 60);
+  
 }
 
+.mat-menu-item{
+  animation: 1s ease-out 0s 1 slideInFromTop;
+}
 .nav-item {
+  animation: 2s ease-out 0s 1 slideInFromTop;
+  
   padding: 24px;
   background: rgb(50, 53, 60);
   color: white;

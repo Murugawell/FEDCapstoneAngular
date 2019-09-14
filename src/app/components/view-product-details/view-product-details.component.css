@@ -1,8 +1,16 @@
 ::ng-deep .mat-tab-header{
     display: none !important;
 }
-
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 mat-card{
+    animation: 2s ease-out 0s 1 slideInFromLeft ;
     border:1px solid grey;
     margin-left: 5%;
     width: 100%;
