@@ -36,18 +36,23 @@ mat-toolbar{
 .mat-menu-item{
   animation: 1s ease-out 0s 1 slideInFromTop;
 }
+mat-icon-button:hover{
+  transform: scale(1.1);
+}
 .nav-item {
   animation: 2s ease-out 0s 1 slideInFromTop;
   
   padding: 24px;
   background: rgb(50, 53, 60);
   color: white;
-  border-bottom: 1px solid #797979;
+  border: 0.5px solid #797979;
 }
-
+.nav-item:hover{
+  transform: scale(1.1);
+}
 .nav-item span {
   font-size: 14px;
 }
-.logout {
-  display: flex;
+.logout:hover{
+  transform: scale(1.1);
 }

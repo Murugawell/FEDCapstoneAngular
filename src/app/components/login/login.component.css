@@ -23,9 +23,7 @@ button{
 mat-form-field{
   animation: 2s ease-out 0s 1 slideInFromTop ;
 }
-mat-toolbar{
-  background-color: #3f51b536;
-}
+
 .main {
   animation: 1s ease-out 0s 1 slideInFromLeft;
 
