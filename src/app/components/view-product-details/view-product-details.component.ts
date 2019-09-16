@@ -39,6 +39,9 @@ export class ViewProductDetailsComponent implements OnInit {
   index: number;
   constructor(private _productService: ProductService, public dialog: MatDialog, private router: Router, private route: ActivatedRoute) { }
   product = [];
+  productDetail={};
+  view=false;
+  viewProducts=true;
   openDialog(id): void {
     const dialogRef = this.dialog.open(SimpleDialogComponent, {
       width: '250px',
@@ -59,10 +62,38 @@ export class ViewProductDetailsComponent implements OnInit {
   }
   getProduct() {
     this._productService.getProducts().subscribe(
-      (product: any) => this.product = product,
+      (product: any) => {this.product = product;
+       for(let p in this.product)
+   {
+     this.product[p].flip="inactive"
+    
+   }
+var array = this.product;
+array.sort(function (a, b) {
+  return b.views - a.views;
+});
+ 
+},
       err => console.log(err)
     );
 
+  }
+  viewDetails(productDet)
+  {
+    console.log(productDet);
+    this.productDetail=productDet;
+    this._productService.updateViews(productDet).subscribe((res) => {
+      if (res) {
+        this.getProduct();
+      }
+    });
+    this.viewProducts=false;    
+    this.view=true;
+  }
+  toggleBack()
+  {
+    this.view=false;    
+    this.viewProducts=true;    
   }
   delete(id) {
 
@@ -73,14 +104,16 @@ export class ViewProductDetailsComponent implements OnInit {
     });
   }
   ngOnInit() {
-    console.log("asdsa");
     this.index = 0; 
     this.getProduct();
+   
   }
   flip: string = 'inactive';
 
-  toggleFlip() {
-    this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
+  toggleFlip(item) {
+   
+   
+    item.flip = (item.flip == 'inactive') ? 'active' : 'inactive';
   }
 
 

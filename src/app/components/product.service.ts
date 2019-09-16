@@ -95,25 +95,37 @@ export class ProductService {
             "id":product.productID,
             "manufacturer":product.manufacturer,
             "price":product.price,
-            "productAddedon":now
+            "productAddedon":now,
+            "views":0
             
         }
         
         return this._http.post(this._productsUrl, newProduct, this.httpOptions);
     }
-    editProduct(id,product) {
+    editProduct(id,product,exsistingProduct) {
         this.count++;
+         var now = new Date();
         let newProduct = {
             "productName": product.productName,
             "productDescription":product.description,            
             "quantity": product.quantity,
             "id":product.productID,
             "manufacturer":product.manufacturer,
-            "price":product.price
+            "price":product.price,
+            "productAddedon":exsistingProduct.productAddedon,
+            "lastEditedOn":now,
+            "views":exsistingProduct.views
             
         }
         
         const url = `${this._productsUrl}/${id}`;
+        return this._http.put(url,newProduct, this.httpOptions);
+    }
+    updateViews(productDetails)
+    {
+        productDetails.views+=1;
+        let newProduct = productDetails;
+         const url = `${this._productsUrl}/${productDetails.id}`;
         return this._http.put(url,newProduct, this.httpOptions);
     }
     deleteProduct(id) {

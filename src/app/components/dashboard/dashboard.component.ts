@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   {
     icon: 'person',
     label: 'Inventory',
-    path: '/viewProduct'
+    path: '/viewProducts'
   },
   {
     icon: 'person',

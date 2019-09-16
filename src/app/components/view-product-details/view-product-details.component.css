@@ -23,8 +23,12 @@ mat-icon{
     padding-top: 5px;
 }
 
-
-
+.fab-btn:hover{
+  transform: scale(1.2);
+}
+.edit-effect{
+    margin-top: 125px;
+}
 
     .tp-wrapper {
       -webkit-perspective: 800px;
@@ -42,13 +46,14 @@ mat-icon{
           -ms-transform         : transform 1s;
               transform         : transform 1s;
     }
-    .tp-box:hover .tp-box__front{
+    
+    .tp-box__front{
         transform: rotateY(180deg);
         
     }
-    .tp-box:hover .tp-box__back {
+     .tp-box__back {
         transform: rotateY(0deg);
-        
+               
     }
     .tp-box__side {
        width: 100%;
@@ -81,7 +86,7 @@ mat-icon{
       transform         : rotateY(-180deg);
     }
 
-    .card-container{
+    /*.card-container{
         width: 18rem;
         perspective: 200rem;
         position: relative;
@@ -105,4 +110,4 @@ mat-icon{
         height: 100%;
         width: 100%;
          backface-visibility: hidden;
-    }
+    }*/

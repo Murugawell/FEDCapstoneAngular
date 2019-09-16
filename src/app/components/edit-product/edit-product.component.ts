@@ -43,7 +43,7 @@ export class EditProductComponent implements OnInit {
 
   }
   editProduct() {
-    this._productService.editProduct(this.route.snapshot.params.id,this.profileForm.value).subscribe(
+    this._productService.editProduct(this.route.snapshot.params.id,this.profileForm.value,this.product).subscribe(
       (res) => {
         console.log(res)
       }

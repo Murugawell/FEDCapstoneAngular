@@ -16,7 +16,7 @@ const routes: Routes = [
       { path: 'addProduct',canActivate: [ConfirmGuard],canDeactivate: [ConfirmGuard], component: AddProductComponent },
       { path: 'profile',canActivate: [ConfirmGuard], component: ProfileComponentComponent },
       {
-        path: 'viewProduct', component: ViewProductDetailsComponent,
+        path: 'viewProducts', component: ViewProductDetailsComponent,
         children: [
           { path: 'editProduct/:id',canActivate: [ConfirmGuard], component: EditProductComponent }]
       },
