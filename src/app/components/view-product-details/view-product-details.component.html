@@ -1,11 +1,12 @@
-<mat-toolbar fxLayoutAlign="center center">
+<div>
+<mat-toolbar fxLayoutAlign="center center" >
      <button type="button"  fxFlex="5%" fxLayoutAlign="left" mat-icon-button *ngIf="view" (click)="toggleBack()">
                 <mat-icon style="font-size:30px">arrow_back</mat-icon>
             </button>
     <span >Products</span>
 </mat-toolbar>
-<mat-tab-group [selectedIndex]="index">
-    <mat-tab >
+<!--<mat-tab-group [selectedIndex]="index">
+    <mat-tab >-->
 <!--<div *ngFor='let p of product'>
 <div class="card-container mx-auto mt-5"  >
      <mat-card class="card card-front mb-3" appearance="outline">
@@ -28,7 +29,10 @@
                 </mat-card-actions>
 </div>
 </div>-->
-<div fxLayout="row wrap" fxFlex="100%" fxLayoutAlign="center center" *ngIf="viewProducts">
+<div *ngIf="deleteIds.length>0">
+                        <button  mat-raised-button (click)="openDialog()" fxFlex="50%" color="warn"><mat-icon  >close</mat-icon>Delete({{deleteIds.length}})</button>
+</div>    
+<div fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="viewProducts">
         <div *ngFor='let p of product' class="tp-box" fxLayout="row wrap" fxFlex="22%" fxLayoutAlign="center center" [@flipState]="p.flip" >
            
             <div class="tp-box__side tp-box__front" >
@@ -54,10 +58,12 @@
                 <mat-divider></mat-divider>
                 <mat-card-subtitle ><span style="width:50%;float:left;padding:10px">ProductID:{{p.id}} </span><span style="width:50%;padding:10px;float:left"><mat-icon >visibility</mat-icon>{{p.views}}</span></mat-card-subtitle>
                 <div class="edit-effect">
-           <mat-card-actions >
+           <mat-card-actions >  
                         <button class="edit-btn" mat-raised-button (click)="openEdit(p.id)" fxFlex="50%" color="primary"><mat-icon  >edit</mat-icon>Edit</button>
-                        <button class="delete-btn" mat-raised-button (click)="openDialog(p.id)" fxFlex="50%" color="warn"><mat-icon  >close</mat-icon>Delete</button>
-                        
+                        <div class="delete-btn"  fxFlex="50%" [@deleteFlipState]="p.deleteFlip">
+                        <button class="delete-btn-side delete-btn-front " mat-raised-button (click)="storeId(p)" fxFlex="100%" color="warn" ><mat-icon  >close</mat-icon>Delete</button>
+                        <button class="delete-btn-side delete-btn-back" mat-raised-button (click)="storeId(p)"  fxFlex="100%" color="grey" ><mat-icon  >refresh</mat-icon>Undo</button>
+                        </div>
                 </mat-card-actions>
                 </div>
                 
@@ -84,10 +90,11 @@
                      
               
        </div>
-    </mat-tab>
+       </div>
+    <!--</mat-tab>
 
     <mat-tab>
 
         <router-outlet></router-outlet>
     </mat-tab>
-</mat-tab-group>
+</mat-tab-group>-->

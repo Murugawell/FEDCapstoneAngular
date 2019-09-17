@@ -1,35 +1,17 @@
 {
   "products": [
     {
-      "productName": "retedsfsdf",
+      "productName": "OnePlus",
       "productDescription": "rtertsadad",
       "quantity": "12",
       "manufacturer": "teesada",
       "price": "21",
       "productAddedon": "2019-09-16T10:34:30.981Z",
-      "lastEditedOn": "2019-09-16T10:34:30.981Z",
-      "views": 28,
+      "lastEditedOn": "2019-09-17T10:24:10.918Z",
+      "views": 29,
       "id": 2,
-      "flip": "inactive"
-    },
-    {
-      "productName": "saf",
-      "productDescription": "fafadf",
-      "quantity": "21321",
-      "manufacturer": "asfadf",
-      "price": "213",
-      "id": 3,
-      "views": 6,
-      "flip": "inactive"
-    },
-    {
-      "productName": "dsfs",
-      "productDescription": "sdfsdf",
-      "quantity": "12321",
-      "id": 5,
-      "manufacturer": "sdfds",
-      "price": "213",
-      "views": 10
+      "flip": "inactive",
+      "deleteFlip": "inactive"
     },
     {
       "productName": "dsfds",
@@ -38,8 +20,22 @@
       "id": 6,
       "manufacturer": "fdsfs",
       "price": "213",
-      "views": 17,
-      "flip": "inactive"
+      "views": 18,
+      "flip": "inactive",
+      "deleteFlip": "inactive"
+    },
+    {
+      "productName": "Moto G",
+      "productDescription": "Mobile",
+      "quantity": "123",
+      "manufacturer": "Motorola",
+      "price": "12344",
+      "productAddedon": "2019-09-17T10:06:24.973Z",
+      "lastEditedOn": "2019-09-17T10:22:58.571Z",
+      "views": 3,
+      "id": 7,
+      "flip": "inactive",
+      "deleteFlip": "inactive"
     }
   ],
   "profiles": [

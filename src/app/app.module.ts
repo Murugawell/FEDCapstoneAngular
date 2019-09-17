@@ -19,6 +19,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { ProfileComponentComponent } from './components/profile-component/profile-component.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { BarchartComponent } from './components/barchart/barchart.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     SimpleDialogComponent,
     DashboardComponent,
     EditProductComponent,
-    ProfileComponentComponent
+    ProfileComponentComponent,
+    BarchartComponent
   ],
   imports: [
     MaterialModule,
@@ -40,6 +43,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     BrowserAnimationsModule,
     HttpClientModule, ReactiveFormsModule,
     FormsModule,
+    ChartsModule,
     MDBBootstrapModule.forRoot()
   ],
   schemas: [

@@ -31,6 +31,16 @@ export interface DialogData {
       })),
       transition('active => inactive', animate('250ms ease-out')),
       transition('inactive => active', animate('250ms ease-in'))
+    ]),
+    trigger('deleteFlipState', [
+      state('active', style({
+        transform: 'rotateX(179deg)'
+      })),
+      state('inactive', style({
+        transform: 'rotateX(0)'
+      })),
+      transition('active => inactive', animate('250ms ease-out')),
+      transition('inactive => active', animate('250ms ease-in'))
     ])
   ]
 })
@@ -42,30 +52,67 @@ export class ViewProductDetailsComponent implements OnInit {
   productDetail={};
   view=false;
   viewProducts=true;
-  openDialog(id): void {
+  deleteIds=[];
+
+  storeId(p){
+    this.toggleDeleteFlip(p);
+    if(this.deleteIds.length>0)
+    {
+      let exist=false;
+        for(let i in this.deleteIds)
+    {
+
+      console.log(this.deleteIds[i]);
+      if(this.deleteIds[i]==p.id)
+      {
+        exist=true;
+        this.deleteIds.splice(parseInt(i),1);
+        break;
+          
+      }
+     
+    }
+     if(exist==false)
+      {
+        this.deleteIds.push(p.id);
+        
+      }
+  }
+  else
+  {
+    
+     this.deleteIds.push(p.id);
+  }
+       
+    
+    console.log(this.deleteIds);
+    
+  }
+  openDialog(): void {
     const dialogRef = this.dialog.open(SimpleDialogComponent, {
       width: '250px',
-      data: { id: id }
+      data: { id:this.deleteIds }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if (result) {
-        this.delete(id);
+        this.delete(this.deleteIds);
       }
     });
   }
   openEdit(id) {
 
     this.index = 1;
-    this.router.navigate([decodeURI(this.router.url) + '/editProduct/'+id]);
+    this.router.navigate(['dashboard/editProduct/'+id]);
   }
   getProduct() {
     this._productService.getProducts().subscribe(
       (product: any) => {this.product = product;
        for(let p in this.product)
    {
-     this.product[p].flip="inactive"
+     this.product[p].flip="inactive";
+     this.product[p].deleteFlip="inactive";
     
    }
 var array = this.product;
@@ -96,24 +143,38 @@ array.sort(function (a, b) {
     this.viewProducts=true;    
   }
   delete(id) {
-
-    this._productService.deleteProduct(id).subscribe((res) => {
-      if (res) {
-        this.getProduct();
-      }
-    });
+    let len=id.length;
+        let i=0;
+        let ids='';
+        while(len>i)
+        {
+          this._productService.deleteProduct(id[i]).subscribe((res) => {
+           if (res) {
+           this.getProduct();
+           }
+           });
+           i++;
+        }
+    this.deleteIds=[];
   }
   ngOnInit() {
     this.index = 0; 
+    this.view=false;    
+    this.viewProducts=true; 
     this.getProduct();
    
   }
   flip: string = 'inactive';
-
+  deleteFlip: string ='inactive';
   toggleFlip(item) {
    
    
     item.flip = (item.flip == 'inactive') ? 'active' : 'inactive';
+  }
+   toggleDeleteFlip(item) {
+   
+   
+    item.deleteFlip = (item.deleteFlip == 'inactive') ? 'active' : 'inactive';
   }
 
 

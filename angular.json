@@ -36,7 +36,9 @@
                "src/assets/js/jquery-2.2.3.js",
                "src/assets/js/tether.js",
             "src/assets/js/bootstrap.js",
-            "src/assets/js/mdb.js"
+            "src/assets/js/mdb.js",
+            "src/assets/modules(optional)/chart.js"
+            
             ]
           },
           "configurations": {

@@ -42,7 +42,7 @@
     animation: 1s ease-out 0s 1 slideInFromLeft ;
   }
   button:hover{
-    animation: 0.5s ease-out 0s 1 slideInFromTop ;
+   
     background-color:#3F51B5;
     color: white;
     backface-visibility: hidden;

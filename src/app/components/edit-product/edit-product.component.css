@@ -7,6 +7,14 @@
       transform: translateX(0);
     }
   }
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100);
+    }
+  }
   @keyframes slideInFromTop {
     0% {
       transform: rotateX(180deg);
@@ -23,13 +31,16 @@
       transform: rotateX(0deg);
     }
   }
+  .edit-form{
+    animation: 2s ease-out 0s 1 slideInFromRight ;
+  }
 .mat-form-field{
     animation: 1s ease-out 0s 1 slideInFromTop ;
     
 }
 
 button:hover{
-    animation: 0.5s ease-out 0s 1 rotate ;
+  
     background-color:#3F51B5;
     color: white;
     backface-visibility: hidden;

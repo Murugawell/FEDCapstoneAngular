@@ -129,7 +129,19 @@ export class ProductService {
         return this._http.put(url,newProduct, this.httpOptions);
     }
     deleteProduct(id) {
-       
+        // console.log(id);
+        // let len=id.length;
+        // let i=0;
+        // let ids='';
+        // while(len--)
+        // {
+        //     ids+='id='+id[i]+'&';
+        //     i++;
+        // }
+        // console.log(ids);
+        // let idd=ids.substring(0,ids.length-1);
+        // console.log(idd);
+        
         const url = `${this._productsUrl}/${id}`;
         return this._http.delete(url, this.httpOptions);
     }

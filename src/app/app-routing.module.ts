@@ -5,6 +5,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { BarchartComponent } from './components/barchart/barchart.component';
 import { ProfileComponentComponent } from './components/profile-component/profile-component.component';
 import { ViewProductDetailsComponent } from './components/view-product-details/view-product-details.component';
 import { ConfirmGuard } from './confirm.guard';
@@ -17,9 +18,10 @@ const routes: Routes = [
       { path: 'profile',canActivate: [ConfirmGuard], component: ProfileComponentComponent },
       {
         path: 'viewProducts', component: ViewProductDetailsComponent,
-        children: [
-          { path: 'editProduct/:id',canActivate: [ConfirmGuard], component: EditProductComponent }]
+        
       },
+      { path: 'editProduct/:id',canActivate: [ConfirmGuard], component: EditProductComponent }, 
+      { path: 'reports', component: BarchartComponent }
 
     ]
   },
