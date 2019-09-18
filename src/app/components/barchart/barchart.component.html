@@ -5,11 +5,18 @@
         [datasets]="barChartData"
         [labels]="barChartLabels"
         [options]="barChartOptions"
+        [colors]="chartColors"
         [plugins]="barChartPlugins"
         [legend]="barChartLegend"
         [chartType]="barChartType">
       </canvas>
     </div>
-    <button mat-button mat-raised-button color="primary" (click)="randomize()">Update</button>
+    <mat-form-field appearance="outline" style="width:345px">
+            <mat-label>Enter the number of top products to display</mat-label>
+            <input matInput  type="number" #name>
+            <!-- <mat-icon matPrefix>sentiment_very_satisfied</mat-icon> -->
+            <mat-error>Hint</mat-error>
+        </mat-form-field>
+    <button mat-button mat-raised-button color="primary" (click)="randomize($event, name.value);name.value='';">Update</button>
   </div>
 </div>

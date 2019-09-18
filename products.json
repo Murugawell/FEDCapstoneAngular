@@ -8,7 +8,7 @@
       "price": "21",
       "productAddedon": "2019-09-16T10:34:30.981Z",
       "lastEditedOn": "2019-09-17T10:24:10.918Z",
-      "views": 29,
+      "views": 31,
       "id": 2,
       "flip": "inactive",
       "deleteFlip": "inactive"
@@ -34,6 +34,42 @@
       "lastEditedOn": "2019-09-17T10:22:58.571Z",
       "views": 3,
       "id": 7,
+      "flip": "inactive",
+      "deleteFlip": "inactive"
+    },
+    {
+      "productName": "Samsung",
+      "productDescription": "Mobile",
+      "quantity": "23",
+      "id": 8,
+      "manufacturer": "Samsung",
+      "price": "1234",
+      "productAddedon": "2019-09-18T04:57:19.285Z",
+      "views": 3,
+      "flip": "inactive",
+      "deleteFlip": "inactive"
+    },
+    {
+      "productName": "Lenovo",
+      "productDescription": "Mobile",
+      "quantity": "45",
+      "id": 9,
+      "manufacturer": "lenovo",
+      "price": "12233",
+      "productAddedon": "2019-09-18T04:57:58.941Z",
+      "views": 2,
+      "flip": "inactive",
+      "deleteFlip": "inactive"
+    },
+    {
+      "productName": "Apple",
+      "productDescription": "Mobile with Mac OS",
+      "quantity": "43",
+      "id": 10,
+      "manufacturer": "Apple",
+      "price": "11111111",
+      "productAddedon": "2019-09-18T04:58:41.448Z",
+      "views": 2,
       "flip": "inactive",
       "deleteFlip": "inactive"
     }

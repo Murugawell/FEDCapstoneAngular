@@ -37,7 +37,7 @@
                "src/assets/js/tether.js",
             "src/assets/js/bootstrap.js",
             "src/assets/js/mdb.js",
-            "src/assets/modules(optional)/chart.js"
+            "src/assets/js/modules(optional)/chart.js"
             
             ]
           },
