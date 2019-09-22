@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class ProductService {
-    private _productsUrl = "http://localhost:3000/products";
+    private _productsUrl = "http://localhost:3001/products";
     private _profileUrl = "http://localhost:3000/profiles";
     private count=105;
     private httpOptions = {

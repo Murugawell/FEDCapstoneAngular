@@ -1,117 +1,128 @@
-::ng-deep .mat-tab-header{
+::ng-deep .mat-tab-header {
     display: none !important;
 }
-@keyframes slideInFromLeft {
+
+/* @keyframes slideInFromLeft {
     0% {
-      transform: translateX(-100%);
+        transform: translateX(-100%);
     }
+
     100% {
-      transform: translateX(0);
+        transform: translateX(0);
     }
-  }
-mat-card{
-    animation: 2s ease-out 0s 1 slideInFromLeft ;
-    border:1px solid grey;
-    margin-left: 5%;
+} */
+mat-card {
+    /* animation: 2s ease-out 0s 1 slideInFromLeft; */
+    border: 1px solid grey;
+    /*margin-left: 5%;*/
     width: 100%;
     height: 100%;
 }
 
-mat-icon{
-        font-size: medium;
+mat-icon {
+    /* font-size: medium;
     padding-right: 5px;
-    padding-top: 5px;
+    padding-top: 5px; */
 }
 
-.fab-btn:hover{
-  transform: scale(1.2);
+.fab-btn:hover {
+    transform: scale(1.2);
 }
-.edit-effect{
+
+.edit-effect {
     margin-top: 125px;
 }
 
-    .tp-wrapper {
-      -webkit-perspective: 800px;
-              perspective: 800px;
-    }
-    
-    .tp-box {
-      position: relative;
-      width: 200px;
-      height: 300px;
-      margin: 3rem auto;
-      -webkit-transform-style: preserve-3d;
-              transform-style: preserve-3d;
-      -webkit-transform         : transform 1s;
-          -ms-transform         : transform 1s;
-              transform         : transform 1s;
-    }
-    .delete-btn{
-      
-         position: relative;
-           -webkit-transform-style: preserve-3d;
-              transform-style: preserve-3d;
-      -webkit-transform         : transform 1s;
-          -ms-transform         : transform 1s;
-              transform         : transform 1s;
-    }
-    .delete-btn-side{
-         width: 100%;
-      height: 100%;
-      position: absolute;
-     
-       transition: all 0.5s;
-      
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-    } 
-    .delete-btn-front{
-          transform: rotateY(0deg);
-    }
-    .delete-btn-back{
-         transform: rotateX(180deg);
-    }
-    
-    .tp-box__front{
-        transform: rotateY(180deg);
-        
-    }
-     .tp-box__back {
-        transform: rotateY(0deg);
-               
-    }
-    .tp-box__side {
-       width: 100%;
-      height: 100%;
-      position: absolute;
-       transition: all 0.5s;
-      
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
+.tp-wrapper {
+    -webkit-perspective: 800px;
+    perspective: 800px;
+}
 
-      color: #fff;
-      text-align: center;
-      line-height: 25px;
-      font-size: 24px;
-      font-weight: 700;
-      cursor: pointer;
-      -webkit-user-select: none;
-         -moz-user-select: none;
-          -ms-user-select: none;
-              user-select: none;
-    }
-    .tp-box__front {
-      -webkit-transform : rotateY(0deg);
-      -ms-transform     : rotateY(0deg);
-      transform         : rotateY(0deg);
-    }
-    .tp-box__back {
-      -webkit-transform : rotateY(-180deg);
-      -ms-transform     : rotateY(-180deg);
-      transform         : rotateY(-180deg);
-    }
+.tp-box {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    margin: 3rem auto;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: transform 1s;
+    -ms-transform: transform 1s;
+    transform: transform 1s;
+}
 
-    /*.card-container{
+.delete-btn {
+
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: transform 1s;
+    -ms-transform: transform 1s;
+    transform: transform 1s;
+}
+
+.delete-btn-side {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    transition: all 0.5s;
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.delete-btn-front {
+    transform: rotateY(0deg);
+}
+
+.delete-btn-back {
+    transform: rotateX(180deg);
+}
+
+.tp-box__front {
+    transform: rotateY(180deg);
+
+}
+
+.tp-box__back {
+    transform: rotateY(0deg);
+
+}
+
+.tp-box__side {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 0.5s;
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    color: #fff;
+    text-align: center;
+    line-height: 25px;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.tp-box__front {
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+
+.tp-box__back {
+    -webkit-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+/*.card-container{
         width: 18rem;
         perspective: 200rem;
         position: relative;

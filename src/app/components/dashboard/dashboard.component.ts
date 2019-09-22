@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
     label: 'Dashboard',
     path: '/'
   },
-  
+
   {
     icon: 'person',
     label: 'Inventory',
@@ -24,7 +24,11 @@ export class DashboardComponent implements OnInit {
     label: 'Add Product',
     path: '/addProduct'
   },
-  
+  {
+    icon: 'person',
+    label: 'My Profile',
+    path: '/profile'
+  },
   {
     icon: 'person',
     label: 'Reports',
@@ -32,28 +36,26 @@ export class DashboardComponent implements OnInit {
   }
 
   ];
-  constructor(private router: Router, private route: ActivatedRoute,private _productService: ProductService) { }
-  show:boolean;
+  constructor(private router: Router, private route: ActivatedRoute, private _productService: ProductService) { }
+  show: boolean;
   ngOnInit() {
-    let user=this._productService.getUserSession();
+    let user = this._productService.getUserSession();
 
-    if(user==null)
-    {
+    if (user == null) {
       console.log(user);
-      this.show=false;
+      this.show = false;
     }
-    else
-    {
-      console.log(user);      
-      this.show=true;
+    else {
+      console.log(user);
+      this.show = true;
     }
   }
   navigate(path) {
 
     this.router.navigate([this.route.snapshot.url + '/' + path]);
   }
-  logout(){
+  logout() {
     this._productService.removeUserSession();
-     this.router.navigate(['/']);
+    this.router.navigate(['/']);
   }
 }

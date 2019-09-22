@@ -1,4 +1,4 @@
-@keyframes slideInFromLeft {
+/* @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
   }
@@ -13,46 +13,45 @@
   100% {
     transform: rotateX(0deg);
   }
-}
+} */
 .example-container {
-  height: 100%;
-  animation: 1s ease-out 0s 1 slideInFromLeft;
+    height: 100%;
+    animation: 1s ease-out 0s 1 slideInFromLeft;
 }
 
 .example-sidenav-content {
-  height: 100%;
-  
-}
-mat-toolbar{
-  animation: 2s ease-out 0s 1 slideInFromTop;
-  
-}
-.example-sidenav {
-  /* padding: 20px; */
-  background: rgb(50, 53, 60);
-  
+    height: 100%;
+
 }
 
-.mat-menu-item{
-  animation: 1s ease-out 0s 1 slideInFromTop;
+.example-sidenav {
+    /* padding: 20px; */
+    background: rgb(50, 53, 60);
+
 }
-mat-icon-button:hover{
+
+
+/* mat-icon-button:hover{
   transform: scale(1.1);
-}
+} */
 .nav-item {
-  animation: 2s ease-out 0s 1 slideInFromTop;
-  
-  padding: 24px;
-  background: rgb(50, 53, 60);
-  color: white;
-  border: 0.5px solid #797979;
+    padding: 24px;
+    background: rgb(50, 53, 60);
+    color: white;
+    border: 0.5px solid #797979;
 }
-.nav-item:hover{
-  transform: scale(1.1);
+
+.nav-item:hover {
+cursor: pointer;
+    background: #797979;
+    color: black;
 }
+
+/* 
+
 .nav-item span {
   font-size: 14px;
 }
 .logout:hover{
   transform: scale(1.1);
-}
+} */

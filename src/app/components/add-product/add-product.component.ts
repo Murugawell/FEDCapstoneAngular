@@ -29,15 +29,16 @@ export class AddProductComponent implements OnInit {
     this._productService.getProducts().subscribe(
       (product: any) => {
         this.product = product;
-        if (this.product.length > 0)
-        {
-          let len=1+this.product[this.product.length-1].id;
+        if (this.product.length > 0) {
+          let len = 1 + this.product[this.product.length - 1].id;
           console.log(len);
-          this.profileForm.patchValue({ productID: len, productName: '',
-    description: '',
-    manufacturer: '',
-    price: '',
-    quantity: '', });
+          this.profileForm.patchValue({
+            productID: len, productName: '',
+            description: '',
+            manufacturer: '',
+            price: '',
+            quantity: '',
+          });
         }
       },
       err => console.log(err)

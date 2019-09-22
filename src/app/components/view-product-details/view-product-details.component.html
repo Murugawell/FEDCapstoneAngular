@@ -1,97 +1,90 @@
 <div>
-<mat-toolbar fxLayoutAlign="center center" >
-     <button type="button"  fxFlex="5%" fxLayoutAlign="left" mat-icon-button *ngIf="view" (click)="toggleBack()">
-                <mat-icon style="font-size:30px">arrow_back</mat-icon>
-            </button>
-    <span >Products</span>
-</mat-toolbar>
-<!--<mat-tab-group [selectedIndex]="index">
-    <mat-tab >-->
-<!--<div *ngFor='let p of product'>
-<div class="card-container mx-auto mt-5"  >
-     <mat-card class="card card-front mb-3" appearance="outline">
-                <mat-card-title>{{p.productName}}</mat-card-title>
-                <mat-divider></mat-divider>
-                <mat-card-subtitle>ProductID:{{p.id}}</mat-card-subtitle>
-                <mat-card-subtitle>Manufacturer:{{p.manufacturer}}</mat-card-subtitle>
-                <mat-card-subtitle>Quantity:{{p.quantity}}</mat-card-subtitle>  
-                <mat-card-subtitle>Price:{{p.price}}</mat-card-subtitle> 
-                <mat-divider></mat-divider>               
-                <mat-card-content>{{p.productDescription}}</mat-card-content>
-                
-             </mat-card>
-            
-   <mat-card-actions  class="card card-back mb-3">
-       <div>
-                        <button mat-raised-button (click)="openEdit(p.id)" fxFlex="50%" color="primary"><mat-icon  >edit</mat-icon>Edit</button>
-                        <button mat-raised-button (click)="openDialog(p.id)" fxFlex="50%" color="warn"><mat-icon  >close</mat-icon>Delete</button>
-       </div>        
-                </mat-card-actions>
-</div>
-</div>-->
-<div *ngIf="deleteIds.length>0">
-                        <button  mat-raised-button (click)="openDialog()" fxFlex="50%" color="warn"><mat-icon  >close</mat-icon>Delete({{deleteIds.length}})</button>
-</div>    
-<div fxLayout="row wrap" fxLayoutAlign="center center" *ngIf="viewProducts">
-        <div *ngFor='let p of product' class="tp-box" fxLayout="row wrap" fxFlex="22%" fxLayoutAlign="center center" [@flipState]="p.flip" >
-           
-            <div class="tp-box__side tp-box__front" >
-            <mat-card  appearance="outline">
-                <img mat-card-image src="../../../assets/img/productlogo.jpg" alt="Image with a photo of clouds." style="height: 135px;">
-                <mat-card-title (click)="viewDetails(p)">{{p.productName}}</mat-card-title>
-                <mat-divider></mat-divider>
-                <mat-card-subtitle ><span style="width:50%;float:left;padding:10px">ProductID:{{p.id}} </span><span style="width:50%;padding:10px;float:left"><mat-icon >visibility</mat-icon>{{p.views}}</span></mat-card-subtitle>
-                <!--<mat-card-subtitle>Manufacturer:{{p.manufacturer}}</mat-card-subtitle>
+    <mat-toolbar fxLayoutAlign="center center">
+        <button type="button" fxFlex="5%" fxLayoutAlign="left" mat-icon-button *ngIf="view" (click)="toggleBack()">
+            <mat-icon style="font-size:30px">arrow_back</mat-icon>
+        </button>
+        <span>Products</span>
+    </mat-toolbar>
+   
+    <div *ngIf="deleteIds.length>0">
+        <button mat-raised-button (click)="openDialog()" fxFlex="50%" color="warn">
+            <mat-icon>close</mat-icon>Delete({{deleteIds.length}})
+        </button>
+    </div>
+    <div fxLayout="row wrap" fxLayoutAlign="start start" *ngIf="viewProducts">
+        <div *ngFor='let p of product' class="tp-box" fxLayout="row wrap" fxFlex="22%" fxLayoutAlign="start start"
+            [@flipState]="p.flip">
+
+            <div class="tp-box__side tp-box__front">
+                <mat-card appearance="outline">
+                    <img mat-card-image src="../../../assets/img/productlogo.jpg" alt="Image with a photo of clouds."
+                        style="height: 135px;">
+                    <mat-card-title (click)="viewDetails(p)">{{p.productName}}</mat-card-title>
+                    <mat-divider></mat-divider>
+                    <mat-card-subtitle><span style="width:50%;float:left;padding:10px">ProductID:{{p.id}} </span><span
+                            style="width:50%;padding:10px;float:left">
+                            <mat-icon>visibility</mat-icon>{{p.views}}
+                        </span></mat-card-subtitle>
+                    <!--<mat-card-subtitle>Manufacturer:{{p.manufacturer}}</mat-card-subtitle>
                 <mat-card-subtitle>Quantity:{{p.quantity}}</mat-card-subtitle>  
                 <mat-card-subtitle>Price:{{p.price}}</mat-card-subtitle> 
                 <mat-divider></mat-divider>     
                      
                 <mat-card-content>{{p.productDescription}}</mat-card-content>-->
-             <button class="fab-btn" mat-mini-fab (click)="toggleFlip(p)" color="primary"><mat-icon >cached</mat-icon></button>
-               
-             </mat-card>
-        </div>
-        <div class="tp-box__side tp-box__back">
-            <mat-card  appearance="outline">
-                
-                <mat-card-title (click)="viewDetails(p)">{{p.productName}}</mat-card-title>
-                <mat-divider></mat-divider>
-                <mat-card-subtitle ><span style="width:50%;float:left;padding:10px">ProductID:{{p.id}} </span><span style="width:50%;padding:10px;float:left"><mat-icon >visibility</mat-icon>{{p.views}}</span></mat-card-subtitle>
-                <div class="edit-effect">
-           <mat-card-actions >  
-                        <button class="edit-btn" mat-raised-button (click)="openEdit(p.id)" fxFlex="50%" color="primary"><mat-icon  >edit</mat-icon>Edit</button>
-                        <div class="delete-btn"  fxFlex="50%" [@deleteFlipState]="p.deleteFlip">
-                        <button class="delete-btn-side delete-btn-front " mat-raised-button (click)="storeId(p)" fxFlex="100%" color="warn" ><mat-icon  >close</mat-icon>Delete</button>
-                        <button class="delete-btn-side delete-btn-back" mat-raised-button (click)="storeId(p)"  fxFlex="100%" color="grey" ><mat-icon  >refresh</mat-icon>Undo</button>
-                        </div>
-                </mat-card-actions>
-                </div>
-                
-                <button class="fab-btn" mat-mini-fab (click)="toggleFlip(p)" color="primary"><mat-icon >autorenew</mat-icon></button>
-                </mat-card >
+                    <button class="fab-btn" mat-mini-fab (click)="toggleFlip(p)" color="primary">
+                        <mat-icon>cached</mat-icon>
+                    </button>
+
+                </mat-card>
+            </div>
+            <div class="tp-box__side tp-box__back">
+                <mat-card appearance="outline">
+
+                    <mat-card-title (click)="viewDetails(p)">{{p.productName}}</mat-card-title>
+                    <mat-divider></mat-divider>
+                    <mat-card-subtitle><span style="width:50%;float:left;padding:10px">ProductID:{{p.id}} </span><span
+                            style="width:50%;padding:10px;float:left">
+                            <mat-icon>visibility</mat-icon>{{p.views}}
+                        </span></mat-card-subtitle>
+                    <div class="edit-effect">
+                        <mat-card-actions>
+                            <button class="edit-btn" mat-raised-button (click)="openEdit(p.id)" fxFlex="50%"
+                                color="primary">
+                                <mat-icon>edit</mat-icon>Edit
+                            </button>
+                            <div class="delete-btn" fxFlex="50%" [@deleteFlipState]="p.deleteFlip">
+                                <button class="delete-btn-side delete-btn-front " mat-raised-button (click)="storeId(p)"
+                                    fxFlex="100%" color="warn">
+                                    <mat-icon>close</mat-icon>Delete
+                                </button>
+                                <button class="delete-btn-side delete-btn-back" mat-raised-button (click)="storeId(p)"
+                                    fxFlex="100%" color="grey">
+                                    <mat-icon>refresh</mat-icon>Undo
+                                </button>
+                            </div>
+                        </mat-card-actions>
+                    </div>
+
+                    <button class="fab-btn" mat-mini-fab (click)="toggleFlip(p)" color="primary">
+                        <mat-icon>autorenew</mat-icon>
+                    </button>
+                </mat-card>
             </div>
         </div>
-            
-        </div>
-       <div *ngIf="view">
-           <mat-label>ProductName:{{productDetail.productName}}</mat-label><br/>
-           <mat-label>ProductID:{{productDetail.id}}</mat-label><br/>
-           <mat-label>Views:{{productDetail.views}}</mat-label><br/> 
-           <mat-label>Manufacturer:{{productDetail.manufacturer}}</mat-label><br/>
-           <mat-label>Quantity:{{productDetail.quantity}}</mat-label><br/>
-           <mat-label>Description:{{productDetail.productDescription}}</mat-label><br/>
-           <mat-label>Price:{{productDetail.price}}</mat-label><br/>               
-           <mat-label>ProductAddedOn:{{productDetail.productAddedon}}</mat-label><br/>  
-           
-               
-               
-                
-           
-                     
-              
-       </div>
-       </div>
-    <!--</mat-tab>
+
+    </div>
+    <div *ngIf="view">
+        <mat-label>ProductName:{{productDetail.productName}}</mat-label><br />
+        <mat-label>ProductID:{{productDetail.id}}</mat-label><br />
+        <mat-label>Views:{{productDetail.views}}</mat-label><br />
+        <mat-label>Manufacturer:{{productDetail.manufacturer}}</mat-label><br />
+        <mat-label>Quantity:{{productDetail.quantity}}</mat-label><br />
+        <mat-label>Description:{{productDetail.productDescription}}</mat-label><br />
+        <mat-label>Price:{{productDetail.price}}</mat-label><br />
+        <mat-label>ProductAddedOn:{{productDetail.productAddedon}}</mat-label><br />
+    </div>
+</div>
+<!--</mat-tab>
 
     <mat-tab>
 

@@ -1,0 +1,43 @@
+{
+  "products": [
+    {
+      "productName": "Test1",
+      "productDescription": "Sample",
+      "quantity": "12",
+      "manufacturer": "HP1",
+      "price": "1234",
+      "productAddedon": "2019-09-22T06:33:56.322Z",
+      "lastEditedOn": "2019-09-22T06:35:04.251Z",
+      "views": 3,
+      "id": 4,
+      "flip": "inactive",
+      "deleteFlip": "inactive"
+    },
+    {
+      "productName": "Test1",
+      "productDescription": "Sample",
+      "quantity": "12",
+      "manufacturer": "HP1",
+      "price": "1234",
+      "productAddedon": "2019-09-22T06:33:56.322Z",
+      "lastEditedOn": "2019-09-22T06:35:04.251Z",
+      "views": 3,
+      "id": 5,
+      "flip": "inactive",
+      "deleteFlip": "inactive"
+    },
+    {
+      "productName": "Test1",
+      "productDescription": "Sample",
+      "quantity": "12",
+      "manufacturer": "HP1",
+      "price": "1234",
+      "productAddedon": "2019-09-22T06:33:56.322Z",
+      "lastEditedOn": "2019-09-22T06:35:04.251Z",
+      "views": 3,
+      "id": 6,
+      "flip": "inactive",
+      "deleteFlip": "inactive"
+    }
+  ]
+}
