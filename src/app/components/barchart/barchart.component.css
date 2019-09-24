@@ -1,0 +1,16 @@
+.chart-div {
+  /* height: 500px !important;
+  width: 750px !important; */
+}
+
+.pie-div {
+  /* width: 350px; */
+}
+
+
+input[type="number"],
+input[type="number"]:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}

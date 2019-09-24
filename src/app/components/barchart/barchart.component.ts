@@ -10,10 +10,14 @@ import { ProductService } from '../product.service';
   styleUrls: ['./barchart.component.css']
 })
 export class BarchartComponent implements OnInit {
- public barChartOptions: ChartOptions = {
+  public barChartOptions: ChartOptions = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
-    scales: { xAxes: [{}], yAxes: [{}] },
+    scales: {
+      xAxes: [{
+        barPercentage: 0.4
+      }]
+    },
     plugins: {
       datalabels: {
         anchor: 'end',
@@ -21,48 +25,51 @@ export class BarchartComponent implements OnInit {
       }
     }
   };
+  pieChartType = 'pie';
+  pieChartOptions: ChartOptions = {
+    responsive: true
+  };
   public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [pluginDataLabels];
-  product=[];
+  product = [];
   public barChartData: ChartDataSets[] = [
     { data: [], label: 'Series A' }
   ];
-   public chartColors: Array<any> = [
+  public chartColors: Array<any> = [
     { // first color
       backgroundColor: '#b7bfe8',
-     
+
     }];
   constructor(private _productService: ProductService) { }
 
   ngOnInit() {
     this.getProduct();
   }
-   getProduct() {
+  getProduct() {
     this._productService.getProducts().subscribe(
       (product: any) => {
-        this.product=product;
+        this.product = product;
         var array = product;
         array.sort(function (a, b) {
           return b.views - a.views;
         });
-       for(let p in array)
-   {
-     console.log(typeof(this.barChartLabels));
-    this.barChartLabels.push(array[p].productName);
-    this.barChartData[0].data.push(array[p].views);
-    
-   }
-   console.log(  this.barChartLabels,":::::::::",this.barChartData)
+        for (let p in array) {
+          console.log(typeof (this.barChartLabels));
+          this.barChartLabels.push(array[p].productName);
+          this.barChartData[0].data.push(array[p].views);
 
- 
-},
+        }
+        console.log(this.barChartLabels, ":::::::::", this.barChartData)
+
+
+      },
       err => console.log(err)
     );
 
   }
-   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
     console.log(event, active);
   }
 
@@ -73,22 +80,20 @@ export class BarchartComponent implements OnInit {
   public randomize(event, num): void {
     // Only Change 3 values
     console.log(num);
-    this.barChartLabels=[];
-    this.barChartData[0].data=[];
-      for(let p in this.product)
-   {
-     console.log(typeof(this.barChartLabels));
-    this.barChartLabels.push(this.product[p].productName);
-    this.barChartData[0].data.push(this.product[p].views);
-    
-   }
-   if(num>0)
-   {
-    const data =this.barChartData[0].data.splice(0,num);
+    this.barChartLabels = [];
+    this.barChartData[0].data = [];
+    for (let p in this.product) {
+      console.log(typeof (this.barChartLabels));
+      this.barChartLabels.push(this.product[p].productName);
+      this.barChartData[0].data.push(this.product[p].views);
 
-    const labels= this.barChartLabels.splice(0,num);
-    this.barChartData[0].data = data;
-    this.barChartLabels=labels;
+    }
+    if (num > 0) {
+      const data = this.barChartData[0].data.splice(0, num);
+
+      const labels = this.barChartLabels.splice(0, num);
+      this.barChartData[0].data = data;
+      this.barChartLabels = labels;
     }
   }
 }

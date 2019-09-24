@@ -1,9 +1,13 @@
 button:hover {
-    background-color: #3F51B5;
-    color: white;
-    backface-visibility: hidden;
+  background-color: #3F51B5;
+  color: white;
+  backface-visibility: hidden;
 }
 
 .register {
-    padding: 24px;
+  padding: 24px;
+}
+
+::ng-deep .mat-input-element:disabled {
+  color: black !important;
 }

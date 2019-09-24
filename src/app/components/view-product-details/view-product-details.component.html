@@ -5,7 +5,7 @@
         </button>
         <span>Products</span>
     </mat-toolbar>
-   
+
     <div *ngIf="deleteIds.length>0">
         <button mat-raised-button (click)="openDialog()" fxFlex="50%" color="warn">
             <mat-icon>close</mat-icon>Delete({{deleteIds.length}})
@@ -48,18 +48,19 @@
                         </span></mat-card-subtitle>
                     <div class="edit-effect">
                         <mat-card-actions>
-                            <button class="edit-btn" mat-raised-button (click)="openEdit(p.id)" fxFlex="50%"
+                            <button class="edit-btn" mat-raised-button (click)="openEdit(p.id)" fxFlex="47%"
                                 color="primary">
-                                <mat-icon>edit</mat-icon>Edit
+                                <mat-icon class="icon1">edit</mat-icon>Edit
                             </button>
-                            <div class="delete-btn" fxFlex="50%" [@deleteFlipState]="p.deleteFlip">
+                            <span fxFlex></span>
+                            <div class="delete-btn" fxFlex="47%" [@deleteFlipState]="p.deleteFlip">
                                 <button class="delete-btn-side delete-btn-front " mat-raised-button (click)="storeId(p)"
                                     fxFlex="100%" color="warn">
-                                    <mat-icon>close</mat-icon>Delete
+                                    <mat-icon class="icon1">close</mat-icon>Delete
                                 </button>
                                 <button class="delete-btn-side delete-btn-back" mat-raised-button (click)="storeId(p)"
                                     fxFlex="100%" color="grey">
-                                    <mat-icon>refresh</mat-icon>Undo
+                                    <mat-icon class="icon1">refresh</mat-icon>Undo
                                 </button>
                             </div>
                         </mat-card-actions>

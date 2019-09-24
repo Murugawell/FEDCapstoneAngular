@@ -16,7 +16,7 @@ export class ConfirmGuard implements CanActivate {
     {
     let isConfirm = confirm("Please login to continue");
     if(isConfirm) {
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
     } else {
       return false;
        

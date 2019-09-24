@@ -1,22 +1,25 @@
 <div>
   <div>
-    <div style="display: block">
-      <canvas baseChart
-        [datasets]="barChartData"
-        [labels]="barChartLabels"
-        [options]="barChartOptions"
-        [colors]="chartColors"
-        [plugins]="barChartPlugins"
-        [legend]="barChartLegend"
-        [chartType]="barChartType">
-      </canvas>
+    <mat-card fxLayoutAlign="start center">
+      <mat-form-field appearance="outline" style="width:345px">
+        <mat-label>Enter the number of top products to display</mat-label>
+        <input matInput type="number" [(ngModel)]="showProductCount">
+      </mat-form-field>
+      <button mat-button mat-raised-button color="primary"
+        (click)="randomize($event, showProductCount);showProductCount='';">Update</button>
+    </mat-card>
+
+    <div fxLayout="row">
+      <div style="display: block" class="chart-div" fxFlex>
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+          [colors]="chartColors" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+        </canvas>
+      </div>
+      <div style="display: block" class="pie-div" fxFlex>
+        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="pieChartOptions"
+          [colors]="chartColors" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="pieChartType">
+        </canvas>
+      </div>
     </div>
-    <mat-form-field appearance="outline" style="width:345px">
-            <mat-label>Enter the number of top products to display</mat-label>
-            <input matInput  type="number" #name>
-            <!-- <mat-icon matPrefix>sentiment_very_satisfied</mat-icon> -->
-            <mat-error>Hint</mat-error>
-        </mat-form-field>
-    <button mat-button mat-raised-button color="primary" (click)="randomize($event, name.value);name.value='';">Update</button>
   </div>
 </div>

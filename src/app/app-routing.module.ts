@@ -14,23 +14,24 @@ import { ConfirmGuard } from './confirm.guard';
 const routes: Routes = [
   {
     path: 'dashboard', component: DashboardComponent, children: [
-      { path: 'addProduct',canActivate: [ConfirmGuard],canDeactivate: [ConfirmGuard], component: AddProductComponent },
-      { path: 'profile',canActivate: [ConfirmGuard], component: ProfileComponentComponent },
+      { path: 'addProduct', canActivate: [ConfirmGuard], canDeactivate: [ConfirmGuard], component: AddProductComponent },
+      { path: 'profile', canActivate: [ConfirmGuard], component: ProfileComponentComponent },
       {
         path: 'viewProducts', component: ViewProductDetailsComponent,
-        
+
       },
-      { path: 'editProduct/:id',canActivate: [ConfirmGuard], component: EditProductComponent }, 
+      { path: 'editProduct/:id', canActivate: [ConfirmGuard], component: EditProductComponent },
       { path: 'reports', component: BarchartComponent }
 
     ]
   },
   { path: 'registration', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
 
 
 
 
-  { path: '**', component: LoginComponent },
+  { path: '**', redirectTo: 'dashboard' },
 ];
 
 @NgModule({
