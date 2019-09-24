@@ -16,6 +16,9 @@ export class BarchartComponent implements OnInit {
     scales: {
       xAxes: [{
         barPercentage: 0.4
+      }],
+      yAxes: [{
+        ticks: { min: 0, max: 10, stepSize: 2, display: true, beginAtZero: true }
       }]
     },
     plugins: {
@@ -51,17 +54,17 @@ export class BarchartComponent implements OnInit {
     this._productService.getProducts().subscribe(
       (product: any) => {
         this.product = product;
-        var array = product;
+        const array = product;
         array.sort(function (a, b) {
           return b.views - a.views;
         });
-        for (let p in array) {
+        for (const p in array) {
           console.log(typeof (this.barChartLabels));
           this.barChartLabels.push(array[p].productName);
           this.barChartData[0].data.push(array[p].views);
 
         }
-        console.log(this.barChartLabels, ":::::::::", this.barChartData)
+        console.log(this.barChartLabels, ':::::::::', this.barChartData);
 
 
       },
@@ -82,7 +85,7 @@ export class BarchartComponent implements OnInit {
     console.log(num);
     this.barChartLabels = [];
     this.barChartData[0].data = [];
-    for (let p in this.product) {
+    for (const p in this.product) {
       console.log(typeof (this.barChartLabels));
       this.barChartLabels.push(this.product[p].productName);
       this.barChartData[0].data.push(this.product[p].views);
