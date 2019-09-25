@@ -18,7 +18,7 @@ export class BarchartComponent implements OnInit {
         barPercentage: 0.4
       }],
       yAxes: [{
-        ticks: { min: 0, max: 10, stepSize: 2, display: true, beginAtZero: true }
+        ticks: { min: 0, stepSize: 5, display: true, beginAtZero: true }
       }]
     },
     plugins: {
@@ -38,7 +38,7 @@ export class BarchartComponent implements OnInit {
   public barChartPlugins = [pluginDataLabels];
   product = [];
   public barChartData: ChartDataSets[] = [
-    { data: [], label: 'Series A' }
+    { data: [], label: 'Views' }
   ];
   public chartColors: Array<any> = [
     { // first color

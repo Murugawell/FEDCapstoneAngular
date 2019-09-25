@@ -74,8 +74,29 @@
         </div>
 
     </div>
-    <div *ngIf="view">
-        <mat-label>ProductName:{{productDetail.productName}}</mat-label><br />
+    <div *ngIf="view"  fxLayoutAlign="center center">
+         <mat-card appearance="outline" class="view-Details">
+             <div fxFlex="49%" >
+              <img mat-card-image src="../../../assets/img/productlogo.jpg" alt="Image with a photo of clouds." class="product-img"
+                       >
+             </div>
+             <div fxFlex="49%" class="product-details">
+                    <mat-card-title style="font-family: sans-serif;font-size: 22px;font-weight: 600;">{{productDetail.productName}}</mat-card-title>
+                    <mat-card-content style="font-style: italic;font-size: small;color: grey;">Manufacturer:{{productDetail.manufacturer}}</mat-card-content>
+                    <mat-card-content style="font-size: x-large;">&#8377;{{productDetail.price}}</mat-card-content>
+                    <div class="product-description">
+                    <mat-tab-group>
+                    <mat-tab label="Description">{{productDetail.productDescription}}</mat-tab>
+                    <mat-tab label="Details">Content 2</mat-tab>
+                    <mat-tab label="Comments">Content 3</mat-tab>
+                    </mat-tab-group>
+                    </div>
+                   <mat-label>Quantity</mat-label><br />
+                    <mat-card-content>{{productDetail.quantity}}</mat-card-content>
+                           
+             </div> 
+                </mat-card>
+        <!--<mat-label>ProductName:{{productDetail.productName}}</mat-label><br />
         <mat-label>ProductID:{{productDetail.id}}</mat-label><br />
         <mat-label>Views:{{productDetail.views}}</mat-label><br />
         <mat-label>Manufacturer:{{productDetail.manufacturer}}</mat-label><br />
@@ -83,7 +104,7 @@
         <mat-label>Description:{{productDetail.productDescription}}</mat-label><br />
         <mat-label>Price:{{productDetail.price}}</mat-label><br />
         <mat-label>ProductAddedOn:{{productDetail.productAddedon}}</mat-label><br />
-    </div>
+    </div>-->
 </div>
 <!--</mat-tab>
 
@@ -92,3 +113,7 @@
         <router-outlet></router-outlet>
     </mat-tab>
 </mat-tab-group>-->
+
+
+
+

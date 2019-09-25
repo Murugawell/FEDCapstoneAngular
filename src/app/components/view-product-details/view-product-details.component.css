@@ -1,5 +1,5 @@
-::ng-deep .mat-tab-header {
-  display: none !important;
+.mat-tab-label .mat-tab-label-content {
+  color: white;
 }
 
 /* @keyframes slideInFromLeft {
@@ -154,3 +154,37 @@ mat-icon {
     height: 18px;
     width: 20px;
     }
+
+
+  .view-Details{
+   
+    height:450px;
+    width:55%;
+   background-color: white;
+  }
+  .product-img{
+    margin-top: 0px !important;
+    height: 100%;
+    margin-left: 15px;
+  }
+  .product-details{
+     padding: 50px;
+    padding-left:50px;
+     background-color: #2D2E32;
+    margin-left: 15px;
+    color: white;
+  }
+  .product-description{
+    height: 150px;
+    border: 0.5px solid ;
+    border-color: rgba(128, 128, 128, 0.4117647058823529);
+    border-radius: 5%;
+    font-size: smaller !important;
+  }
+  mat-label {
+    text-transform: uppercase;
+    font-size: smaller;
+  }
+  .mat-tab-label .mat-tab-label-content{
+    color: white;
+  }
