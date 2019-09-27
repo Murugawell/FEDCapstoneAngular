@@ -13,11 +13,13 @@
                         style="height: 135px;">
                     <mat-card-title (click)="viewDetails(p)"><mat-icon>person</mat-icon>{{p.firstName}}</mat-card-title>
                     <mat-divider></mat-divider>
-                    <mat-card-subtitle><span style="float:left;padding-top:10px"><mat-icon>mail</mat-icon>{{p.emailID}}</span></mat-card-subtitle>
-                    <mat-card-subtitle><span
-                            style="padding:10px;float:left">
-                            <mat-icon>phonelink_ring</mat-icon>{{p.mobileNo}}
-                        </span></mat-card-subtitle>
+                    <mat-card-subtitle><mat-icon style="float:left;padding-top:10px">mail</mat-icon><span style="float:left;padding-top:12px;padding-left: 5px;width:80%;">{{p.emailID}}</span></mat-card-subtitle>
+                    <mat-card-content>
+                        <mat-icon  style="float:left;padding-top:10px">phonelink_ring</mat-icon>
+                        <span
+                            style="padding:10px;float:left;padding-left: 5px;">
+                            {{p.mobileNo}}
+                        </span></mat-card-content>
                     <!--<mat-card-subtitle>Manufacturer:{{p.manufacturer}}</mat-card-subtitle>
                 <mat-card-subtitle>Quantity:{{p.quantity}}</mat-card-subtitle>  
                 <mat-card-subtitle>Price:{{p.price}}</mat-card-subtitle> 

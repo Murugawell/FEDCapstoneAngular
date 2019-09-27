@@ -34,7 +34,7 @@
       "price": "1234",
       "productAddedon": "2019-09-22T06:33:56.322Z",
       "lastEditedOn": "2019-09-22T06:35:04.251Z",
-      "views": 25,
+      "views": 26,
       "id": 6,
       "flip": "inactive",
       "deleteFlip": "inactive"
@@ -46,11 +46,13 @@
       "manufacturer": "Moto",
       "price": "12213",
       "productAddedon": "2019-09-27T05:32:59.106Z",
-      "views": 0,
+      "views": 2,
       "productAddedBy": "murugavel.cse1111@gmail.com",
       "lastUpdatedBy": "wallzamora@mixers.com",
       "lastUpdatedOn": "2019-09-27T05:35:35.210Z",
-      "id": 7
+      "id": 7,
+      "flip": "inactive",
+      "deleteFlip": "inactive"
     }
   ]
 }
