@@ -3,7 +3,8 @@
         <button type="button" fxFlex="5%" fxLayoutAlign="left" mat-icon-button *ngIf="view" (click)="toggleBack()">
             <mat-icon style="font-size:30px">arrow_back</mat-icon>
         </button>
-        <span>Products</span>
+        <span *ngIf="viewProducts">Products</span>
+        <span *ngIf="view" >Product Details</span>
     </mat-toolbar>
 
     <div *ngIf="deleteIds.length>0">

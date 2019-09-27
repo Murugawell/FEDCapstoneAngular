@@ -7,15 +7,21 @@
       </mat-form-field>
       <button mat-button mat-raised-button color="primary" style="margin:30px"
         (click)="randomize($event, showProductCount);showProductCount='';">Update</button>
+
+        <mat-button-toggle-group #group="matButtonToggleGroup" [value]="selectedVal" (change)="onValChange(group.value)">
+        <mat-button-toggle value="BarChart">Barchart</mat-button-toggle>
+        <mat-button-toggle value="PieChart">PieChart</mat-button-toggle>
+      </mat-button-toggle-group>
+      
     </mat-card>
 
     <div fxLayout="row">
-      <div style="display: block" class="chart-div" fxFlex>
+      <div *ngIf="BarChart" style="display: block" class="chart-div" fxFlex>
         <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
           [colors]="chartColors" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
         </canvas>
       </div>
-      <div style="display: block" class="pie-div" fxFlex>
+      <div  *ngIf="PieChart" style="display: block" class="pie-div" fxFlex>
         <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="pieChartOptions"
           [colors]="chartColors" [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="pieChartType">
         </canvas>

@@ -10,6 +10,8 @@ import { ProductService } from '../product.service';
   styleUrls: ['./barchart.component.css']
 })
 export class BarchartComponent implements OnInit {
+  public BarChart;
+  public PieChart;
   public barChartOptions: ChartOptions = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
@@ -35,6 +37,7 @@ export class BarchartComponent implements OnInit {
   public barChartLabels: Label[] = [];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
+  public selectedVal: string;
   public barChartPlugins = [pluginDataLabels];
   product = [];
   public barChartData: ChartDataSets[] = [
@@ -48,8 +51,17 @@ export class BarchartComponent implements OnInit {
   constructor(private _productService: ProductService) { }
 
   ngOnInit() {
+    this.selectedVal ='BarChart';
+    this.BarChart=true;
+    this.PieChart=false;
     this.getProduct();
   }
+   onValChange(val: string) {
+  this.selectedVal = val;
+  this.BarChart=!this.BarChart;
+  this.PieChart=!this.PieChart;
+  console.log(val);
+}
   getProduct() {
     this._productService.getProducts().subscribe(
       (product: any) => {

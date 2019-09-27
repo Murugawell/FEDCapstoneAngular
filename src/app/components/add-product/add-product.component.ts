@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ProductService } from '../product.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-product',
@@ -9,7 +10,7 @@ import { ProductService } from '../product.service';
 })
 export class AddProductComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private _productService: ProductService) { }
+  constructor(private fb: FormBuilder, private _productService: ProductService,private _snackBar: MatSnackBar) { }
   profileForm = this.fb.group({
     productName: '',
     description: '',
@@ -45,6 +46,11 @@ export class AddProductComponent implements OnInit {
     );
 
   }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
   addProduct() {
     console.log(this.profileForm.value);
     // if (this.productName.length > 0 && this.quantity > 0) {
@@ -52,6 +58,7 @@ export class AddProductComponent implements OnInit {
 
     this._productService.addProduct(this.profileForm.getRawValue()).subscribe((res) => {
       console.log(res);
+      this.openSnackBar("Product added Successfully", "");
       this.getProduct();
     });
 

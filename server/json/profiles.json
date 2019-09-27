@@ -1143,6 +1143,19 @@
       "lastLogin": "2019-09-24T08:55:16.021Z",
       "profileUpdated": "2019-09-24T08:55:16.021Z",
       "id": 5
+    },
+    {
+      "firstName": "Soundar",
+      "lastName": "R",
+      "emailID": "soundar.r23@gmail.com",
+      "mobileNo": "9876543210",
+      "password": "123@123",
+      "confirmPassword": "123@123",
+      "location": "Bengaluru",
+      "profileCreatedOn": "2019-09-25T12:49:38.102Z",
+      "lastLogin": "2019-09-25T12:49:38.102Z",
+      "profileUpdated": "2019-09-25T12:49:38.102Z",
+      "id": 6
     }
   ]
 }

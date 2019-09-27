@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ProductService } from '../product.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-product',
@@ -10,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class EditProductComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private _productService: ProductService,private router: Router, private route: ActivatedRoute) { }
+  constructor(private fb: FormBuilder, private _productService: ProductService,private router: Router, private route: ActivatedRoute,private _snackBar: MatSnackBar) { }
   product={};
   profileForm = this.fb.group({
     productName: '',
@@ -42,10 +43,16 @@ export class EditProductComponent implements OnInit {
     );
 
   }
+   openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
   editProduct() {
     this._productService.editProduct(this.route.snapshot.params.id,this.profileForm.value,this.product).subscribe(
       (res) => {
         console.log(res)
+          this.openSnackBar("Product updated Successfully", "");
       }
         ,
       err => console.log(err)
