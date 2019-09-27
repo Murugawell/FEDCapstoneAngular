@@ -26,8 +26,8 @@ export class DashboardComponent implements OnInit {
   },
   {
     icon: 'person',
-    label: 'My Profile',
-    path: '/profile'
+    label: 'Users',
+    path: '/users'
   },
   {
     icon: 'person',

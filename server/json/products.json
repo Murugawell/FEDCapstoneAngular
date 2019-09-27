@@ -38,6 +38,19 @@
       "id": 6,
       "flip": "inactive",
       "deleteFlip": "inactive"
+    },
+    {
+      "productName": "Motorola",
+      "productDescription": "Moto5",
+      "quantity": "12",
+      "manufacturer": "Moto",
+      "price": "12213",
+      "productAddedon": "2019-09-27T05:32:59.106Z",
+      "views": 0,
+      "productAddedBy": "murugavel.cse1111@gmail.com",
+      "lastUpdatedBy": "wallzamora@mixers.com",
+      "lastUpdatedOn": "2019-09-27T05:35:35.210Z",
+      "id": 7
     }
   ]
 }

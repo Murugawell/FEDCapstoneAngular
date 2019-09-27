@@ -31,13 +31,13 @@
       transform: rotateX(0deg);
     }
   }
-  .edit-form{
+  /*.edit-form{
     animation: 2s ease-out 0s 1 slideInFromRight ;
   }
 .mat-form-field{
     animation: 1s ease-out 0s 1 slideInFromTop ;
     
-}
+}*/
 
 button:hover{
   

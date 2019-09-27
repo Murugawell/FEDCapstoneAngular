@@ -21,6 +21,7 @@ import { ProfileComponentComponent } from './components/profile-component/profil
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BarchartComponent } from './components/barchart/barchart.component';
 import { ChartsModule } from 'ng2-charts';
+import { UsersComponent } from './components/users/users.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ChartsModule } from 'ng2-charts';
     DashboardComponent,
     EditProductComponent,
     ProfileComponentComponent,
-    BarchartComponent
+    BarchartComponent,
+    UsersComponent
   ],
   imports: [
     MaterialModule,

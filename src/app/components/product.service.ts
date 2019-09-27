@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class ProductService {
-    private _productsUrl = "http://localhost:3000/products";
+    private _productsUrl = "http://localhost:3002/products";
     private _profileUrl = "http://localhost:3001/profiles";
     private count=105;
     private httpOptions = {
@@ -37,6 +37,9 @@ export class ProductService {
     getProduct(id) {
         const url = `${this._productsUrl}/${id}`;        
         return this._http.get(url, this.httpOptions);
+    }
+     getUsers() {
+        return this._http.get(this._profileUrl);
     }
     getUser(id) {
       //  const url = `${this._profileUrl}/${id}`;  
@@ -88,6 +91,8 @@ export class ProductService {
     addProduct(product) {
         this.count++;
         var now = new Date();
+         var user = sessionStorage.getItem('user');
+          let userObj=JSON.parse(user);
         let newProduct = {
             "productName": product.productName,
             "productDescription":product.description,            
@@ -96,7 +101,10 @@ export class ProductService {
             "manufacturer":product.manufacturer,
             "price":product.price,
             "productAddedon":now,
-            "views":0
+            "views":0,
+            "productAddedBy":userObj.emailID,
+            "lastUpdatedBy":userObj.emailID,
+            "lastUpdatedOn":now
             
         }
         
@@ -105,6 +113,8 @@ export class ProductService {
     editProduct(id,product,exsistingProduct) {
         this.count++;
          var now = new Date();
+          var user = sessionStorage.getItem('user');
+          let userObj=JSON.parse(user);
         let newProduct = {
             "productName": product.productName,
             "productDescription":product.description,            
@@ -113,8 +123,10 @@ export class ProductService {
             "manufacturer":product.manufacturer,
             "price":product.price,
             "productAddedon":exsistingProduct.productAddedon,
-            "lastEditedOn":now,
-            "views":exsistingProduct.views
+            "views":exsistingProduct.views,
+            "productAddedBy":exsistingProduct.productAddedBy,
+            "lastUpdatedBy":userObj.emailID,
+            "lastUpdatedOn":now
             
         }
         
