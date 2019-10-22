@@ -12,7 +12,9 @@
 .center-align {
   text-align: "center";
 }
-
+.hyperlink{
+    color: #3F51B5 !important;
+  }
 .register {
   height: 70%;
   width: 100%;

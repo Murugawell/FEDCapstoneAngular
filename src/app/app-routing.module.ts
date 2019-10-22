@@ -10,6 +10,7 @@ import { ProfileComponentComponent } from './components/profile-component/profil
 import { ViewProductDetailsComponent } from './components/view-product-details/view-product-details.component';
 import { ConfirmGuard } from './confirm.guard';
 import { UsersComponent } from './components/users/users.component';
+import { DevelopersComponent } from './components/developers/developers.component';
 
 
 
@@ -24,7 +25,9 @@ const routes: Routes = [
       },
       { path: 'editProduct/:id', canActivate: [ConfirmGuard], component: EditProductComponent },
       { path: 'users', component: UsersComponent },
-      { path: 'reports', component: BarchartComponent }
+      { path: 'reports', component: BarchartComponent },
+      { path: 'developers', component: DevelopersComponent }
+      
 
     ]
   },

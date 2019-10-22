@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ProductService } from '../product.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,7 +10,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private _productService: ProductService,private _snackBar: MatSnackBar) { }
+  constructor(private fb: FormBuilder, private _productService: ProductService,private _snackBar: MatSnackBar, private router: Router) { }
   registerForm = this.fb.group({
     firstName: '',
     lastName: '',
@@ -26,6 +26,9 @@ export class RegisterComponent implements OnInit {
     this._snackBar.open(message, action, {
       duration: 2000,
     });
+  }
+  redirect(){
+    this.router.navigate(['/login']);
   }
   registerProfile(){
      console.log(this.registerForm.value);

@@ -53,7 +53,7 @@ export class ViewProductDetailsComponent implements OnInit {
   view=false;
   viewProducts=true;
   deleteIds=[];
-
+  user=null;
   storeId(p){
     this.toggleDeleteFlip(p);
     if(this.deleteIds.length>0)
@@ -84,9 +84,13 @@ export class ViewProductDetailsComponent implements OnInit {
      this.deleteIds.push(p.id);
   }
        
+    this.user = sessionStorage.getItem('user');
+  
     
-    console.log(this.deleteIds);
     
+  }
+  redirect(){
+    this.router.navigate(['/login']);
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(SimpleDialogComponent, {

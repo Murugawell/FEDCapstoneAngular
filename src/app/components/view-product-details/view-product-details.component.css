@@ -155,7 +155,9 @@ mat-icon {
     width: 20px;
     }
 
-
+  .hyperlink{
+    color: #3F51B5 !important;
+  }
   .view-Details{
    
     height:450px;

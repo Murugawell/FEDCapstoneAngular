@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -33,10 +33,15 @@ export class DashboardComponent implements OnInit {
     icon: 'person',
     label: 'Reports',
     path: '/reports'
+  },
+  {
+    icon: 'person',
+    label: 'Developers',
+    path: '/developers'
   }
 
   ];
-  constructor(private router: Router, private route: ActivatedRoute, private _productService: ProductService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private _productService: ProductService,private _snackBar: MatSnackBar) { }
   show: boolean;
   ngOnInit() {
     let user = this._productService.getUserSession();
@@ -54,8 +59,15 @@ export class DashboardComponent implements OnInit {
 
     this.router.navigate([this.route.snapshot.url + '/' + path]);
   }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
   logout() {
     this._productService.removeUserSession();
     this.router.navigate(['/']);
+    this.show=false;
+     this.openSnackBar("Logged Out Successfully", "");
   }
 }
