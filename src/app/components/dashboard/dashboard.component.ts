@@ -9,33 +9,33 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class DashboardComponent implements OnInit {
   navItems = [{
-    icon: 'person',
+    icon: 'dashboard',
     label: 'Dashboard',
     path: '/'
   },
 
   {
-    icon: 'person',
+    icon: 'shopping_cart',
     label: 'Inventory',
     path: '/viewProducts'
   },
   {
-    icon: 'person',
+    icon: 'add_shopping_cart',
     label: 'Add Product',
     path: '/addProduct'
   },
   {
-    icon: 'person',
+    icon: 'group_add',
     label: 'Users',
     path: '/users'
   },
   {
-    icon: 'person',
+    icon: 'show_chart',
     label: 'Reports',
     path: '/reports'
   },
   {
-    icon: 'person',
+    icon: 'people',
     label: 'Developers',
     path: '/developers'
   }
@@ -43,17 +43,21 @@ export class DashboardComponent implements OnInit {
   ];
   constructor(private router: Router, private route: ActivatedRoute, private _productService: ProductService,private _snackBar: MatSnackBar) { }
   show: boolean;
+  user:{};
   ngOnInit() {
-    let user = this._productService.getUserSession();
+      this.user = JSON.parse(this._productService.getUserSession());
 
-    if (user == null) {
-      console.log(user);
+    if (this.user == null) {
+      console.log(typeof(this.user));
       this.show = false;
     }
     else {
-      console.log(user);
+      console.log(typeof(this.user));
       this.show = true;
     }
+  }
+   redirect(){
+    this.router.navigate(['/login']);
   }
   navigate(path) {
 

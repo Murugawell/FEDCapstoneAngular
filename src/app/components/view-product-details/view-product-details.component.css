@@ -172,9 +172,9 @@ mat-icon {
   .product-details{
      padding: 50px;
     padding-left:50px;
-     background-color: #2D2E32;
+     background-color: rgba(75, 81, 93, 0.3411764705882353);
     margin-left: 15px;
-    color: white;
+    color: black;
   }
   .product-description{
     height: 150px;

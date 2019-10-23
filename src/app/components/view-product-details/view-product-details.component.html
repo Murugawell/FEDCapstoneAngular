@@ -9,7 +9,7 @@
 
     <div *ngIf="deleteIds.length>0">
         <button mat-raised-button (click)="openDialog()" fxFlex="50%" color="warn" [disabled]="user == null" >
-            <mat-icon>close</mat-icon>Delete({{deleteIds.length}})
+            <mat-icon>remove_shopping_cart</mat-icon>Delete({{deleteIds.length}})
         </button>
         <span *ngIf="user==null"> Please <a (click)="redirect()" class="hyperlink">login</a> to Delete product</span>
     </div>
@@ -58,7 +58,7 @@
                             <div class="delete-btn" fxFlex="47%" [@deleteFlipState]="p.deleteFlip">
                                 <button class="delete-btn-side delete-btn-front " mat-raised-button (click)="storeId(p)"
                                     fxFlex="100%" color="warn" >
-                                    <mat-icon class="icon1">close</mat-icon>Delete
+                                    <mat-icon class="icon1">remove_shopping_cart</mat-icon>Delete
                                 </button>
                                 <button class="delete-btn-side delete-btn-back" mat-raised-button (click)="storeId(p)"
                                     fxFlex="100%" color="grey">
@@ -79,7 +79,7 @@
     <div *ngIf="view"  fxLayoutAlign="center center">
          <mat-card appearance="outline" class="view-Details">
              <div fxFlex="49%" >
-              <img mat-card-image src="../../../assets/img/productlogo.jpg" alt="Image with a photo of clouds." class="product-img"
+              <img style="width:100%" src="../../../assets/img/productlogo.jpg" alt="Image with a photo of clouds." class="product-img"
                        >
              </div>
              <div fxFlex="49%" class="product-details">
