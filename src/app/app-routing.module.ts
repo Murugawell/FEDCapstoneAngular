@@ -11,6 +11,7 @@ import { ViewProductDetailsComponent } from './components/view-product-details/v
 import { ConfirmGuard } from './confirm.guard';
 import { UsersComponent } from './components/users/users.component';
 import { DevelopersComponent } from './components/developers/developers.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 
@@ -26,7 +27,9 @@ const routes: Routes = [
       { path: 'editProduct/:id', canActivate: [ConfirmGuard], component: EditProductComponent },
       { path: 'users', component: UsersComponent },
       { path: 'reports', component: BarchartComponent },
-      { path: 'developers', component: DevelopersComponent }
+      { path: 'developers', component: DevelopersComponent },
+      { path: 'about', component: AboutComponent },
+      
       
 
     ]

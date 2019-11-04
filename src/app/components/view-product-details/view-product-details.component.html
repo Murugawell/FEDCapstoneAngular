@@ -1,4 +1,4 @@
-<div>
+<div loading="lazy">
     <mat-toolbar fxLayoutAlign="center center">
         <button type="button" fxFlex="5%" fxLayoutAlign="left" mat-icon-button *ngIf="view" (click)="toggleBack()">
             <mat-icon style="font-size:30px">arrow_back</mat-icon>
@@ -6,6 +6,22 @@
         <span *ngIf="viewProducts">Products</span>
         <span *ngIf="view" >Product Details</span>
     </mat-toolbar>
+    <div fxLayout="row wrap" fxLayoutAlign="flex-end">
+    <div *ngIf="viewProducts" style="float: right;">
+    <button mat-button (click)="openFilter()"><mat-icon>filter_list</mat-icon></button>
+
+</div>
+<div *ngIf="viewProducts" style="float: right;">
+    <button mat-button [matMenuTriggerFor]="menu"><mat-icon>sort</mat-icon></button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="sortPrice('high')">Price:High to Low</button>
+  <button mat-menu-item (click)="sortPrice('low')">Price:Low to High</button>
+  <button mat-menu-item (click)="sortViews('high')">Views:High to Low</button>
+  <button mat-menu-item (click)="sortViews('low')">Views:Low to High</button>
+</mat-menu>
+</div>
+    </div>
+
 
     <div *ngIf="deleteIds.length>0">
         <button mat-raised-button (click)="openDialog()" fxFlex="50%" color="warn" [disabled]="user == null" >

@@ -46,6 +46,7 @@ export class RegisterComponent implements OnInit {
     location:''
   });
       this.openSnackBar("Registered Successfully", "");
+      this.router.navigate(['/login']);
     });
   }
 }

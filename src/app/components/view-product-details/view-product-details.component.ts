@@ -105,6 +105,42 @@ export class ViewProductDetailsComponent implements OnInit {
       }
     });
   }
+  filteredProducts(products)
+  {
+      console.log(products);
+    products.map((product,index)=>{
+      this.product.push(product);
+    });
+    
+      console.log(this.product);
+    
+  }
+  openFilter(): void {
+    const dialogRef = this.dialog.open(SimpleDialogComponent, {
+      width: '800px',
+      height:'500px',
+      data: { value:'filter',products:this.product }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if (result) {
+   
+        
+       var array = this.product;
+       this.product=[];
+       let sampleProduct=[];
+       let pro =[];
+          for(let p in result)
+   {
+      pro=array.filter((d) => d.manufacturer == result[p]);
+      this.filteredProducts(pro);
+   }
+   
+       // this.product=array.filter(d => d.views == 0);
+      }
+    });
+  }
   openEdit(id) {
 
     this.index = 1;
@@ -123,11 +159,43 @@ var array = this.product;
 array.sort(function (a, b) {
   return b.views - a.views;
 });
- 
+  // this.product=array.filter(d => d.views == 0);
+console.log('arr1', array,'type',typeof(array));
 },
       err => console.log(err)
     );
 
+  }
+  sortPrice(value)
+  {
+    var array = this.product;
+    if(value=='high')
+    {
+      array.sort(function (a, b) {
+       return b.price - a.price;
+      });
+    }
+    else
+    {
+       array.sort(function (a, b) {
+       return a.price - b.price;
+      });
+    }
+  }
+  sortViews(value){
+     var array = this.product;
+    if(value=='high')
+    {
+      array.sort(function (a, b) {
+       return b.views - a.views;
+      });
+    }
+    else
+    {
+       array.sort(function (a, b) {
+       return a.views - b.views;
+      });
+    }
   }
   viewDetails(productDet)
   {

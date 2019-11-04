@@ -23,6 +23,7 @@ import { BarchartComponent } from './components/barchart/barchart.component';
 import { ChartsModule } from 'ng2-charts';
 import { UsersComponent } from './components/users/users.component';
 import { DevelopersComponent } from './components/developers/developers.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { DevelopersComponent } from './components/developers/developers.componen
     ProfileComponentComponent,
     BarchartComponent,
     UsersComponent,
-    DevelopersComponent
+    DevelopersComponent,
+    AboutComponent
   ],
   imports: [
     MaterialModule,
